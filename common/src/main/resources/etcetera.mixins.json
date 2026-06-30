@@ -1,0 +1,27 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.ninni.etcetera.mixin",
+  "compatibilityLevel": "JAVA_18",
+  "mixins": [
+    "AnvilBlockMixin",
+    "AnvilScreenHandlerMixin",
+    "EntityMixin",
+    "MonsterMixin",
+    "LeveledCauldronBlockMixin",
+    "LivingEntityMixin",
+    "PlayerEntityMixin",
+    "RedstoneWireBlockMixin",
+    "SmithingTableBlockMixin",
+    "VillagerEntityMixin",
+    "LevelMixin",
+    "LootTableAccessor"
+  ],
+  "client": [
+    "client.ItemEntityRendererMixin",
+    "client.ItemModelsMixin",
+    "client.ItemRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1 }
+}
