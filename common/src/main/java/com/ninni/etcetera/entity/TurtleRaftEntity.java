@@ -36,7 +36,7 @@ public class TurtleRaftEntity extends Boat {
     }
 
     public TurtleRaftEntity(Level world, double x, double y, double z) {
-        this(EtceteraEntityType.TURTLE_RAFT, world);
+        this(EtceteraEntityType.TURTLE_RAFT.get(), world);
         this.setPos(x, y, z);
         this.xo = x;
         this.yo = y;
@@ -134,12 +134,12 @@ public class TurtleRaftEntity extends Boat {
 
     @Override
     public @NotNull Item getDropItem() {
-        return EtceteraItems.TURTLE_RAFT;
+        return EtceteraItems.TURTLE_RAFT.get();
     }
 
     @Override
     protected void destroy(@NotNull DamageSource source) {
-        ItemStack stack = new ItemStack(EtceteraItems.TURTLE_RAFT);
+        ItemStack stack = new ItemStack(EtceteraItems.TURTLE_RAFT.get());
         stack.set(DataComponents.DYED_COLOR, new DyedItemColor(this.getColor(), true));
         this.spawnAtLocation(stack);
         if (!this.getBanner().isEmpty()) {

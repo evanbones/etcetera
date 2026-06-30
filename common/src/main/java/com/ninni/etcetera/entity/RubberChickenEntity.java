@@ -34,7 +34,7 @@ public class RubberChickenEntity extends LivingEntity {
     }
 
     public RubberChickenEntity(Level world, double x, double y, double z) {
-        this(EtceteraEntityType.RUBBER_CHICKEN, world);
+        this(EtceteraEntityType.RUBBER_CHICKEN.get(), world);
         this.setPos(x, y, z);
         this.xo = x;
         this.yo = y;
@@ -68,7 +68,7 @@ public class RubberChickenEntity extends LivingEntity {
     @Nullable
     @Override
     public ItemStack getPickResult() {
-        return EtceteraItems.RUBBER_CHICKEN.getDefaultInstance();
+        return EtceteraItems.RUBBER_CHICKEN.get().getDefaultInstance();
     }
 
     @Override
@@ -122,7 +122,7 @@ public class RubberChickenEntity extends LivingEntity {
             }
         }
         if (entity instanceof Player player && player.getAbilities().instabuild) {
-            this.level().playSound(null, this.getX(), this.getY(), this.getZ(), EtceteraBlocks.RUBBER_BLOCK.defaultBlockState().getSoundType().getBreakSound(), this.getSoundSource(), 1.0f, 1.0f);
+            this.level().playSound(null, this.getX(), this.getY(), this.getZ(), EtceteraBlocks.RUBBER_BLOCK.get().defaultBlockState().getSoundType().getBreakSound(), this.getSoundSource(), 1.0f, 1.0f);
             this.kill();
             return bl2;
         }
@@ -145,7 +145,7 @@ public class RubberChickenEntity extends LivingEntity {
     }
 
     private void breakAndDropItem() {
-        ItemStack itemStack = new ItemStack(EtceteraItems.RUBBER_CHICKEN);
+        ItemStack itemStack = new ItemStack(EtceteraItems.RUBBER_CHICKEN.get());
         if (this.hasCustomName()) {
             itemStack.set(DataComponents.CUSTOM_NAME, this.getCustomName());
         }
@@ -166,7 +166,7 @@ public class RubberChickenEntity extends LivingEntity {
     public void handleEntityEvent(byte status) {
         if (status == 32) {
             if (this.level().isClientSide) {
-                this.level().playLocalSound(this.getX(), this.getY(), this.getZ(), EtceteraBlocks.RUBBER_BLOCK.defaultBlockState().getSoundType().getHitSound(), this.getSoundSource(), 0.3f, 1.0f, false);
+                this.level().playLocalSound(this.getX(), this.getY(), this.getZ(), EtceteraBlocks.RUBBER_BLOCK.get().defaultBlockState().getSoundType().getHitSound(), this.getSoundSource(), 0.3f, 1.0f, false);
                 this.lastHitTime = this.level().getGameTime();
             }
         } else {

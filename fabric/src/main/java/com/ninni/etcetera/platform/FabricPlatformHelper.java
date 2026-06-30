@@ -11,6 +11,7 @@ import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.fabricmc.fabric.api.registry.FlattenableBlockRegistry;
+import net.fabricmc.fabric.api.registry.OxidizableBlocksRegistry;
 import net.fabricmc.fabric.api.resource.IdentifiableResourceReloadListener;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.loader.api.FabricLoader;
@@ -80,20 +81,20 @@ public class FabricPlatformHelper implements IPlatformHelper {
 
     @Override
     public <T extends Mob> void registerSpawnPlacement(
-            EntityType<T> entityType,
+            Supplier<EntityType<T>> entityType,
             SpawnPlacementType placementType,
             Heightmap.Types heightmapType,
             SpawnPlacements.SpawnPredicate<T> predicate
     ) {
-        SpawnPlacements.register(entityType, placementType, heightmapType, predicate);
+        SpawnPlacements.register(entityType.get(), placementType, heightmapType, predicate);
     }
 
     @Override
     public void registerEntityAttributes(
-            EntityType<? extends LivingEntity> entityType,
+            Supplier<EntityType<? extends LivingEntity>> entityType,
             Supplier<AttributeSupplier.Builder> attributes
     ) {
-        FabricDefaultAttributeRegistry.register(entityType, attributes.get());
+        FabricDefaultAttributeRegistry.register(entityType.get(), attributes.get());
     }
 
     @Override
@@ -159,6 +160,11 @@ public class FabricPlatformHelper implements IPlatformHelper {
     @Override
     public void registerWanderingTraderTrade(int level, VillagerTrades.ItemListing trade) {
         TradeOfferHelper.registerWanderingTraderOffers(level, factories -> factories.add(trade));
+    }
+
+    @Override
+    public void registerWaxableBlock(Supplier<Block> unwaxed, Supplier<Block> waxed) {
+        OxidizableBlocksRegistry.registerWaxableBlockPair(unwaxed.get(), waxed.get());
     }
 
     private static class FabricRegistrationProvider<T> implements RegistrationProvider<T> {

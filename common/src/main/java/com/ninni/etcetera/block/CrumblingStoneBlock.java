@@ -23,26 +23,25 @@ public class CrumblingStoneBlock extends AbstractCrumblingStoneBlock {
     }
 
     @Override
-    @SuppressWarnings("deprecation")
-    public void onProjectileHit(Level world, BlockState state, BlockHitResult hit, Projectile projectile) {
+    public void onProjectileHit(@NotNull Level world, @NotNull BlockState state, BlockHitResult hit, @NotNull Projectile projectile) {
         this.tryBreakStone(world, state, hit.getBlockPos(), 1);
         super.onProjectileHit(world, state, hit, projectile);
     }
 
     @Override
-    public void stepOn(Level world, BlockPos pos, BlockState state, Entity entity) {
+    public void stepOn(@NotNull Level world, @NotNull BlockPos pos, @NotNull BlockState state, @NotNull Entity entity) {
         this.tryBreakStone(world, state, pos, 25);
         super.stepOn(world, pos, state, entity);
     }
 
     @Override
-    public void fallOn(Level world, BlockState state, BlockPos pos, Entity entity, float fallDistance) {
+    public void fallOn(@NotNull Level world, @NotNull BlockState state, @NotNull BlockPos pos, @NotNull Entity entity, float fallDistance) {
         this.tryBreakStone(world, state, pos, 1);
         super.fallOn(world, state, pos, entity, fallDistance);
     }
 
     private void tryBreakStone(Level world, BlockState state, BlockPos pos, int inverseChance) {
-        if (!world.isClientSide && world.random.nextInt(inverseChance) == 0 && state.is(EtceteraBlocks.CRUMBLING_STONE)) {
+        if (!world.isClientSide && world.random.nextInt(inverseChance) == 0 && state.is(EtceteraBlocks.CRUMBLING_STONE.get())) {
             this.breakStone(world, pos, state);
         }
     }

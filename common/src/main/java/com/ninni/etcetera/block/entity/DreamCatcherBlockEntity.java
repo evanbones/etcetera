@@ -20,7 +20,7 @@ import java.util.List;
 public class DreamCatcherBlockEntity extends BlockEntity {
 
     public DreamCatcherBlockEntity(BlockPos pos, BlockState state) {
-        super(EtceteraBlockEntityType.DREAM_CATCHER, pos, state);
+        super(EtceteraBlockEntityType.DREAM_CATCHER.get(), pos, state);
     }
 
     public static void tick(Level world, BlockPos pos, BlockState state, DreamCatcherBlockEntity blockEntity) {

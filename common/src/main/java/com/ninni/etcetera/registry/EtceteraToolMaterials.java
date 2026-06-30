@@ -1,11 +1,16 @@
 package com.ninni.etcetera.registry;
 
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.block.Block;
+import org.jetbrains.annotations.NotNull;
+
 import java.util.function.Supplier;
 
 public enum EtceteraToolMaterials implements Tier {
-    BISMUTH(2, 145, 7.0f, 2.0f, 30, () -> Ingredient.of(EtceteraItems.BISMUTH_INGOT));
+    BISMUTH(2, 145, 7.0f, 2.0f, 30, () -> Ingredient.of(EtceteraItems.BISMUTH_INGOT.get()));
 
     private final int miningLevel;
     private final int itemDurability;
@@ -39,8 +44,8 @@ public enum EtceteraToolMaterials implements Tier {
     }
 
     @Override
-    public net.minecraft.tags.TagKey<net.minecraft.world.level.block.Block> getIncorrectBlocksForDrops() {
-        return net.minecraft.tags.BlockTags.INCORRECT_FOR_IRON_TOOL;
+    public @NotNull TagKey<Block> getIncorrectBlocksForDrops() {
+        return BlockTags.INCORRECT_FOR_IRON_TOOL;
     }
 
     @Override
@@ -49,7 +54,7 @@ public enum EtceteraToolMaterials implements Tier {
     }
 
     @Override
-    public Ingredient getRepairIngredient() {
+    public @NotNull Ingredient getRepairIngredient() {
         return this.repairIngredient.get();
     }
 }

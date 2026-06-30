@@ -21,11 +21,11 @@ public class EggpleEntity extends ThrowableItemProjectile {
     }
 
     public EggpleEntity(Level world, LivingEntity owner) {
-        super(EtceteraEntityType.EGGPLE, owner, world);
+        super(EtceteraEntityType.EGGPLE.get(), owner, world);
     }
 
     public EggpleEntity(Level world, double x, double y, double z) {
-        super(EtceteraEntityType.EGGPLE, x, y, z, world);
+        super(EtceteraEntityType.EGGPLE.get(), x, y, z, world);
     }
 
     @Override
@@ -52,7 +52,7 @@ public class EggpleEntity extends ThrowableItemProjectile {
                 i = 4;
             }
             for (int j = 0; j < i; ++j) {
-                ChappleEntity chapple = EtceteraEntityType.CHAPPLE.create(this.level());
+                ChappleEntity chapple = EtceteraEntityType.CHAPPLE.get().create(this.level());
                 if (chapple != null) {
                     chapple.setAge(-24000);
                     if (this.getItem().getItem() instanceof EggpleItem eggpleItem && eggpleItem.isGolden)
@@ -68,6 +68,6 @@ public class EggpleEntity extends ThrowableItemProjectile {
 
     @Override
     protected @NotNull Item getDefaultItem() {
-        return EtceteraItems.EGGPLE;
+        return EtceteraItems.EGGPLE.get();
     }
 }

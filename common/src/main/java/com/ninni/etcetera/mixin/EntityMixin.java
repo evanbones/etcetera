@@ -20,7 +20,7 @@ public abstract class EntityMixin {
         if (((Entity) (Object) this) instanceof LivingEntity living) {
             if (state.is(Blocks.COBWEB)) {
                 for (ItemStack stack : living.getArmorSlots()) {
-                    if (stack.is(EtceteraItems.SILKEN_SLACKS)) {
+                    if (stack.is(EtceteraItems.SILKEN_SLACKS.get())) {
                         ci.cancel();
                     }
                 }

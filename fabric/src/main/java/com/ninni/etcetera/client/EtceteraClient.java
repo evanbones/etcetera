@@ -86,7 +86,7 @@ public class EtceteraClient implements ClientModInitializer {
     }
 
     private static void registerModelPredicates() {
-        ItemProperties.register(EtceteraItems.GOLDEN_GOLEM, ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "broken"), (stack, world, entity, seed) -> {
+        ItemProperties.register(EtceteraItems.GOLDEN_GOLEM.get(), ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "broken"), (stack, world, entity, seed) -> {
             CustomData customData = stack.get(DataComponents.CUSTOM_DATA);
             if (customData != null) {
                 CompoundTag tag = customData.copyTag();
@@ -99,80 +99,80 @@ public class EtceteraClient implements ClientModInitializer {
     }
 
     private static void registerBlockEntityRenderer() {
-        BlockEntityRenderers.register(EtceteraBlockEntityType.ITEM_STAND, ItemStandBlockEntityRenderer::new);
+        BlockEntityRenderers.register(EtceteraBlockEntityType.ITEM_STAND.get(), ItemStandBlockEntityRenderer::new);
     }
 
     private static void registerBlockRenderLayers() {
         ColorProviderRegistry<Block, BlockColor> blockColor = ColorProviderRegistry.BLOCK;
-        blockColor.register((state, world, pos, tintIndex) -> RedstoneWiresBlock.getWireColor(state.getValue(RedstoneWiresBlock.POWER)), EtceteraBlocks.REDSTONE_WIRES);
+        blockColor.register((state, world, pos, tintIndex) -> RedstoneWiresBlock.getWireColor(state.getValue(RedstoneWiresBlock.POWER)), EtceteraBlocks.REDSTONE_WIRES.get());
 
         BlockRenderLayerMap.INSTANCE.putBlocks(RenderType.translucent(),
-                IRIDESCENT_GLASS,
-                IRIDESCENT_GLASS_PANE,
-                LIGHT_BULB,
-                TINTED_LIGHT_BULB,
-                FOOTSTEPS
+                IRIDESCENT_GLASS.get(),
+                IRIDESCENT_GLASS_PANE.get(),
+                LIGHT_BULB.get(),
+                TINTED_LIGHT_BULB.get(),
+                FOOTSTEPS.get()
         );
         BlockRenderLayerMap.INSTANCE.putBlocks(RenderType.cutout(),
-                REDSTONE_WIRES,
-                REDSTONE_WIRE_TORCH,
-                REDSTONE_WIRE_COMPARATOR,
-                REDSTONE_WIRE_REPEATER,
-                REDSTONE_WIRE_WALL_TORCH,
-                BISMUTH_BARS,
-                BOUQUET,
-                COTTON,
-                POTTED_BOUQUET,
-                ITEM_STAND,
-                GLOW_ITEM_STAND,
-                FRAME,
-                DREAM_CATCHER,
-                PRICKLY_CAN,
-                COPPER_TAP
+                REDSTONE_WIRES.get(),
+                REDSTONE_WIRE_TORCH.get(),
+                REDSTONE_WIRE_COMPARATOR.get(),
+                REDSTONE_WIRE_REPEATER.get(),
+                REDSTONE_WIRE_WALL_TORCH.get(),
+                BISMUTH_BARS.get(),
+                BOUQUET.get(),
+                COTTON.get(),
+                POTTED_BOUQUET.get(),
+                ITEM_STAND.get(),
+                GLOW_ITEM_STAND.get(),
+                FRAME.get(),
+                DREAM_CATCHER.get(),
+                PRICKLY_CAN.get(),
+                COPPER_TAP.get()
         );
     }
 
     private static void registerArmor() {
         CottonArmorRenderer cottonRenderer = new CottonArmorRenderer();
 
-        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.WHITE_SWEATER);
-        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.LIGHT_GRAY_SWEATER);
-        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.GRAY_SWEATER);
-        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.BLACK_SWEATER);
-        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.BROWN_SWEATER);
-        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.RED_SWEATER);
-        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.ORANGE_SWEATER);
-        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.YELLOW_SWEATER);
-        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.LIME_SWEATER);
-        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.GREEN_SWEATER);
-        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.CYAN_SWEATER);
-        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.LIGHT_BLUE_SWEATER);
-        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.BLUE_SWEATER);
-        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.PURPLE_SWEATER);
-        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.MAGENTA_SWEATER);
-        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.PINK_SWEATER);
-        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.TRADER_ROBE);
-        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.WHITE_HAT);
-        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.LIGHT_GRAY_HAT);
-        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.GRAY_HAT);
-        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.BLACK_HAT);
-        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.BROWN_HAT);
-        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.RED_HAT);
-        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.ORANGE_HAT);
-        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.YELLOW_HAT);
-        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.LIME_HAT);
-        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.GREEN_HAT);
-        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.CYAN_HAT);
-        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.LIGHT_BLUE_HAT);
-        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.BLUE_HAT);
-        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.PURPLE_HAT);
-        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.MAGENTA_HAT);
-        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.PINK_HAT);
-        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.TRADER_HOOD);
+        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.WHITE_SWEATER.get());
+        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.LIGHT_GRAY_SWEATER.get());
+        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.GRAY_SWEATER.get());
+        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.BLACK_SWEATER.get());
+        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.BROWN_SWEATER.get());
+        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.RED_SWEATER.get());
+        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.ORANGE_SWEATER.get());
+        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.YELLOW_SWEATER.get());
+        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.LIME_SWEATER.get());
+        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.GREEN_SWEATER.get());
+        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.CYAN_SWEATER.get());
+        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.LIGHT_BLUE_SWEATER.get());
+        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.BLUE_SWEATER.get());
+        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.PURPLE_SWEATER.get());
+        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.MAGENTA_SWEATER.get());
+        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.PINK_SWEATER.get());
+        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.TRADER_ROBE.get());
+        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.WHITE_HAT.get());
+        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.LIGHT_GRAY_HAT.get());
+        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.GRAY_HAT.get());
+        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.BLACK_HAT.get());
+        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.BROWN_HAT.get());
+        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.RED_HAT.get());
+        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.ORANGE_HAT.get());
+        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.YELLOW_HAT.get());
+        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.LIME_HAT.get());
+        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.GREEN_HAT.get());
+        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.CYAN_HAT.get());
+        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.LIGHT_BLUE_HAT.get());
+        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.BLUE_HAT.get());
+        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.PURPLE_HAT.get());
+        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.MAGENTA_HAT.get());
+        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.PINK_HAT.get());
+        ArmorRenderer.register(cottonRenderer::render, EtceteraItems.TRADER_HOOD.get());
 
-        ArmorRenderer.register(new TidalArmorRenderer()::render, EtceteraItems.TIDAL_HELMET);
-        ArmorRenderer.register(new SilkArmorRenderer()::render, EtceteraItems.SILKEN_SLACKS);
-        ArmorRenderer.register(new AdventurerArmorRenderer()::render, EtceteraItems.ADVENTURERS_BOOTS);
+        ArmorRenderer.register(new TidalArmorRenderer()::render, EtceteraItems.TIDAL_HELMET.get());
+        ArmorRenderer.register(new SilkArmorRenderer()::render, EtceteraItems.SILKEN_SLACKS.get());
+        ArmorRenderer.register(new AdventurerArmorRenderer()::render, EtceteraItems.ADVENTURERS_BOOTS.get());
     }
 
     private static void registerScreens() {
@@ -187,14 +187,14 @@ public class EtceteraClient implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(EtceteraEntityModelLayers.WEAVER, WeaverModel::getTexturedModelData);
         EntityModelLayerRegistry.registerModelLayer(EtceteraEntityModelLayers.CHAPPLE, ChappleModel::getTexturedModelData);
 
-        EntityRendererRegistry.register(EtceteraEntityType.TURTLE_RAFT, TurtleRaftRenderer::new);
-        EntityRendererRegistry.register(EtceteraEntityType.CHAPPLE, ChappleRenderer::new);
-        EntityRendererRegistry.register(EtceteraEntityType.EGGPLE, ThrownItemRenderer::new);
-        EntityRendererRegistry.register(EtceteraEntityType.WEAVER, WeaverRenderer::new);
-        EntityRendererRegistry.register(EtceteraEntityType.COBWEB, CobwebProjectileEntityRenderer::new);
-        EntityRendererRegistry.register(EtceteraEntityType.GOLDEN_GOLEM, GoldenGolemRenderer::new);
-        EntityRendererRegistry.register(EtceteraEntityType.THROWN_GOLDEN_GOLEM, ThrownItemRenderer::new);
-        EntityRendererRegistry.register(EtceteraEntityType.RUBBER_CHICKEN, RubberChickenRenderer::new);
+        EntityRendererRegistry.register(EtceteraEntityType.TURTLE_RAFT.get(), TurtleRaftRenderer::new);
+        EntityRendererRegistry.register(EtceteraEntityType.CHAPPLE.get(), ChappleRenderer::new);
+        EntityRendererRegistry.register(EtceteraEntityType.EGGPLE.get(), ThrownItemRenderer::new);
+        EntityRendererRegistry.register(EtceteraEntityType.WEAVER.get(), WeaverRenderer::new);
+        EntityRendererRegistry.register(EtceteraEntityType.COBWEB.get(), CobwebProjectileEntityRenderer::new);
+        EntityRendererRegistry.register(EtceteraEntityType.GOLDEN_GOLEM.get(), GoldenGolemRenderer::new);
+        EntityRendererRegistry.register(EtceteraEntityType.THROWN_GOLDEN_GOLEM.get(), ThrownItemRenderer::new);
+        EntityRendererRegistry.register(EtceteraEntityType.RUBBER_CHICKEN.get(), RubberChickenRenderer::new);
     }
 
     private static void registerColorProviders() {
@@ -202,7 +202,7 @@ public class EtceteraClient implements ClientModInitializer {
             if (tintIndex > 0) return -1;
             DyedItemColor dyedColor = stack.get(DataComponents.DYED_COLOR);
             return dyedColor != null ? dyedColor.rgb() : 0x3fa442;
-        }, EtceteraItems.TURTLE_RAFT);
+        }, EtceteraItems.TURTLE_RAFT.get());
     }
 
     @Override

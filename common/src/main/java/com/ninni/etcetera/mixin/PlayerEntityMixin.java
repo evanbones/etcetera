@@ -22,7 +22,7 @@ public abstract class PlayerEntityMixin extends LivingEntity {
 
     @Inject(method = "turtleHelmetTick", at = @At("HEAD"))
     private void updateTidalHelmet(CallbackInfo ci) {
-        if (this.getItemBySlot(EquipmentSlot.HEAD).is(EtceteraItems.TIDAL_HELMET) && !this.isEyeInFluid(FluidTags.WATER))
+        if (this.getItemBySlot(EquipmentSlot.HEAD).is(EtceteraItems.TIDAL_HELMET.get()) && !this.isEyeInFluid(FluidTags.WATER))
             this.addEffect(new MobEffectInstance(MobEffects.CONDUIT_POWER, 20 * 90, 0, false, false, false));
     }
 }

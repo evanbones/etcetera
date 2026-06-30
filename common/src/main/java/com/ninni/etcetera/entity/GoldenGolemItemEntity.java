@@ -24,7 +24,7 @@ public class GoldenGolemItemEntity extends ThrowableItemProjectile {
     }
 
     public GoldenGolemItemEntity(Level world, LivingEntity owner) {
-        super(EtceteraEntityType.THROWN_GOLDEN_GOLEM, owner, world);
+        super(EtceteraEntityType.THROWN_GOLDEN_GOLEM.get(), owner, world);
     }
 
     @Override
@@ -46,7 +46,7 @@ public class GoldenGolemItemEntity extends ThrowableItemProjectile {
     protected void onHit(@NotNull HitResult hitResult) {
         super.onHit(hitResult);
         if (!this.level().isClientSide) {
-            GoldenGolemEntity goldenGolem = EtceteraEntityType.GOLDEN_GOLEM.create(this.level());
+            GoldenGolemEntity goldenGolem = EtceteraEntityType.GOLDEN_GOLEM.get().create(this.level());
             if (goldenGolem != null) {
                 goldenGolem.moveTo(this.getX(), this.getY(), this.getZ(), this.getYRot(), 0.0f);
 
@@ -81,6 +81,6 @@ public class GoldenGolemItemEntity extends ThrowableItemProjectile {
 
     @Override
     protected @NotNull Item getDefaultItem() {
-        return EtceteraItems.GOLDEN_GOLEM;
+        return EtceteraItems.GOLDEN_GOLEM.get();
     }
 }

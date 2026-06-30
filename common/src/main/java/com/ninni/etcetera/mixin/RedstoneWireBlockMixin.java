@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class RedstoneWireBlockMixin {
 
     @Inject(method = "shouldConnectTo(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/core/Direction;)Z", at = @At("HEAD"), cancellable = true)
-    private static void e$connectsTo(BlockState state, Direction dir, CallbackInfoReturnable<Boolean> cir) {
-        if (state.is(EtceteraBlocks.REDSTONE_WIRES)) cir.setReturnValue(false);
+    private static void etcetera$connectsTo(BlockState state, Direction dir, CallbackInfoReturnable<Boolean> cir) {
+        if (state.is(EtceteraBlocks.REDSTONE_WIRES.get())) cir.setReturnValue(false);
     }
 }

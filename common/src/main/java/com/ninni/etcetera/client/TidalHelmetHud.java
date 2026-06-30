@@ -29,7 +29,7 @@ public class TidalHelmetHud {
         if (entity instanceof Player player) {
             if (player.getAbilities().instabuild || player.isSpectator() || player.isDeadOrDying()) return;
             client.getProfiler().push("tidalEye");
-            if (player.getItemBySlot(EquipmentSlot.HEAD).is(EtceteraItems.TIDAL_HELMET)) {
+            if (player.getItemBySlot(EquipmentSlot.HEAD).is(EtceteraItems.TIDAL_HELMET.get())) {
                 if (player.hasEffect(MobEffects.CONDUIT_POWER)) {
                     int full = 20 * 90;
                     int duration = full - player.getEffect(MobEffects.CONDUIT_POWER).getDuration();

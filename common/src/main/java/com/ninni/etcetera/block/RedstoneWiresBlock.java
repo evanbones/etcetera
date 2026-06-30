@@ -97,7 +97,7 @@ public class RedstoneWiresBlock extends Block implements SimpleWaterloggedBlock 
     }
 
     protected static boolean connectsTo(BlockState state, @Nullable Direction dir) {
-        if (state.is(EtceteraBlocks.REDSTONE_WIRES)) return true;
+        if (state.is(EtceteraBlocks.REDSTONE_WIRES.get())) return true;
         if (state.is(Blocks.REDSTONE_WIRE)) return false;
 
         if (state.is(Blocks.REPEATER)) {

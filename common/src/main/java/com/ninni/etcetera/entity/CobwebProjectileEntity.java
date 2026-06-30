@@ -23,7 +23,7 @@ public class CobwebProjectileEntity extends ThrowableItemProjectile {
     }
 
     public CobwebProjectileEntity(Level world, LivingEntity owner) {
-        super(EtceteraEntityType.COBWEB, owner, world);
+        super(EtceteraEntityType.COBWEB.get(), owner, world);
     }
 
     @Override

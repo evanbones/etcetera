@@ -72,16 +72,18 @@ public interface IPlatformHelper {
     <T> RegistrationProvider<T> createRegistrationProvider(ResourceKey<? extends Registry<T>> registry, String modId);
 
     <T extends Mob> void registerSpawnPlacement(
-            EntityType<T> entityType,
+            Supplier<EntityType<T>> entityType,
             SpawnPlacementType placementType,
             Heightmap.Types heightmapType,
             SpawnPlacements.SpawnPredicate<T> predicate
     );
 
     void registerEntityAttributes(
-            EntityType<? extends LivingEntity> entityType,
+            Supplier<EntityType<? extends LivingEntity>> entityType,
             Supplier<AttributeSupplier.Builder> attributes
     );
+
+    void registerWaxableBlock(Supplier<Block> unwaxed, Supplier<Block> waxed);
 
     void registerLootTableModifier(
             BiConsumer<ResourceKey<LootTable>, LootTable.Builder> modifier

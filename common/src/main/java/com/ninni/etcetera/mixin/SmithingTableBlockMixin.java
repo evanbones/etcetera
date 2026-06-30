@@ -23,7 +23,7 @@ public abstract class SmithingTableBlockMixin extends Block {
 
     @Inject(method = "useWithoutItem", at = @At("HEAD"), cancellable = true)
     private void hammeringAnvil(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult, CallbackInfoReturnable<InteractionResult> cir) {
-        if (player.getMainHandItem().is(EtceteraItems.HAMMER) || player.getOffhandItem().is(EtceteraItems.HAMMER)) {
+        if (player.getMainHandItem().is(EtceteraItems.HAMMER.get()) || player.getOffhandItem().is(EtceteraItems.HAMMER.get())) {
             cir.setReturnValue(InteractionResult.PASS);
         }
     }

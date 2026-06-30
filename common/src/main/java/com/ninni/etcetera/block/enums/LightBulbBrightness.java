@@ -1,6 +1,7 @@
 package com.ninni.etcetera.block.enums;
 
 import net.minecraft.util.StringRepresentable;
+import org.jetbrains.annotations.NotNull;
 
 public enum LightBulbBrightness implements StringRepresentable {
     OFF("off"),
@@ -15,7 +16,7 @@ public enum LightBulbBrightness implements StringRepresentable {
     }
 
     @Override
-    public String getSerializedName() {
+    public @NotNull String getSerializedName() {
         return name;
     }
 }

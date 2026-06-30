@@ -154,21 +154,26 @@ public class NeoForgePlatformHelper implements IPlatformHelper {
     }
 
     @Override
+    public void registerWaxableBlock(Supplier<Block> unwaxed, Supplier<Block> waxed) {
+        // No-op: handled by data maps
+    }
+
+    @Override
     public <T extends Mob> void registerSpawnPlacement(
-            EntityType<T> entityType,
+            Supplier<EntityType<T>> entityType,
             SpawnPlacementType placementType,
             Heightmap.Types heightmapType,
             SpawnPlacements.SpawnPredicate<T> predicate
     ) {
-        SPAWN_PLACEMENTS.add(event -> event.register(entityType, placementType, heightmapType, predicate, RegisterSpawnPlacementsEvent.Operation.REPLACE));
+        SPAWN_PLACEMENTS.add(event -> event.register(entityType.get(), placementType, heightmapType, predicate, RegisterSpawnPlacementsEvent.Operation.REPLACE));
     }
 
     @Override
     public void registerEntityAttributes(
-            EntityType<? extends LivingEntity> entityType,
+            Supplier<EntityType<? extends LivingEntity>> entityType,
             Supplier<AttributeSupplier.Builder> attributes
     ) {
-        ATTRIBUTE_REGISTRATIONS.add(event -> event.put(entityType, attributes.get().build()));
+        ATTRIBUTE_REGISTRATIONS.add(event -> event.put(entityType.get(), attributes.get().build()));
     }
 
     @Override

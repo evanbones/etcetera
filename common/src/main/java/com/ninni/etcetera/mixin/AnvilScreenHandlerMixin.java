@@ -35,7 +35,7 @@ public abstract class AnvilScreenHandlerMixin extends ItemCombinerMenu {
         ItemStack inputStack = this.inputSlots.getItem(0);
         ItemStack secondStack = this.inputSlots.getItem(1);
 
-        if (secondStack.is(EtceteraItems.ITEM_LABEL) && secondStack.has(DataComponents.CUSTOM_NAME) && !inputStack.isEmpty()) {
+        if (secondStack.is(EtceteraItems.ITEM_LABEL.get()) && secondStack.has(DataComponents.CUSTOM_NAME) && !inputStack.isEmpty()) {
             ci.cancel();
             ItemStack outputStack = inputStack.copy();
 
@@ -68,7 +68,7 @@ public abstract class AnvilScreenHandlerMixin extends ItemCombinerMenu {
             this.broadcastChanges();
         }
 
-        if (inputStack.is(EtceteraItems.GOLDEN_GOLEM) && secondStack.is(Items.GOLD_INGOT)) {
+        if (inputStack.is(EtceteraItems.GOLDEN_GOLEM.get()) && secondStack.is(Items.GOLD_INGOT)) {
             CustomData customData = inputStack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY);
             CompoundTag inputNbt = customData.copyTag();
 

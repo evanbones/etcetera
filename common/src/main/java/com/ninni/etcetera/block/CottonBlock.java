@@ -29,7 +29,7 @@ public class CottonBlock extends CropBlock {
     }
 
     @Override
-    protected IntegerProperty getAgeProperty() {
+    protected @NotNull IntegerProperty getAgeProperty() {
         return AGE;
     }
 
@@ -39,17 +39,17 @@ public class CottonBlock extends CropBlock {
     }
 
     @Override
-    protected ItemLike getBaseSeedId() {
-        return EtceteraItems.COTTON_SEEDS;
+    protected @NotNull ItemLike getBaseSeedId() {
+        return EtceteraItems.COTTON_SEEDS.get();
     }
 
     @Override
-    public void randomTick(BlockState state, ServerLevel world, BlockPos pos, RandomSource random) {
+    public void randomTick(@NotNull BlockState state, @NotNull ServerLevel world, @NotNull BlockPos pos, RandomSource random) {
         if (random.nextInt(3) != 0) super.randomTick(state, world, pos, random);
     }
 
     @Override
-    protected int getBonemealAgeIncrease(Level world) {
+    protected int getBonemealAgeIncrease(@NotNull Level world) {
         return super.getBonemealAgeIncrease(world) / 3;
     }
 
@@ -59,7 +59,7 @@ public class CottonBlock extends CropBlock {
     }
 
     @Override
-    public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
+    public @NotNull VoxelShape getShape(@NotNull BlockState state, @NotNull BlockGetter world, @NotNull BlockPos pos, @NotNull CollisionContext context) {
         return AGE_TO_SHAPE[this.getAge(state)];
     }
 

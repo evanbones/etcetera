@@ -117,7 +117,7 @@ public class CoppertapBlock extends Block {
 
         if (state.getValue(POWERED) && world.getBlockState(pos.below()).is(Blocks.CAULDRON) && world.getBlockState(pos.relative(state.getValue(FACING).getOpposite())).is(BlockTags.LOGS_THAT_BURN)) {
             if (random.nextInt(7) == 0) {
-                world.setBlock(pos.below(), EtceteraBlocks.RUBBER_CAULDRON.defaultBlockState(), 3);
+                world.setBlock(pos.below(), EtceteraBlocks.RUBBER_CAULDRON.get().defaultBlockState(), 3);
             }
         }
 

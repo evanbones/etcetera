@@ -21,7 +21,6 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 
-@SuppressWarnings("deprecation")
 public class FootstepsBlock extends Block {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final MapCodec<FootstepsBlock> CODEC = simpleCodec(FootstepsBlock::new);
@@ -33,7 +32,7 @@ public class FootstepsBlock extends Block {
     }
 
     @Override
-    public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
+    public @NotNull VoxelShape getShape(@NotNull BlockState state, @NotNull BlockGetter world, @NotNull BlockPos pos, @NotNull CollisionContext context) {
         return SHAPE;
     }
 
@@ -43,20 +42,20 @@ public class FootstepsBlock extends Block {
     }
 
     @Override
-    protected void entityInside(BlockState state, Level world, BlockPos pos, Entity entity) {
+    protected void entityInside(@NotNull BlockState state, @NotNull Level world, @NotNull BlockPos pos, @NotNull Entity entity) {
         super.entityInside(state, world, pos, entity);
-        if (entity instanceof Player player && !player.isShiftKeyDown() && !player.getItemBySlot(EquipmentSlot.FEET).is(EtceteraItems.ADVENTURERS_BOOTS)) {
+        if (entity instanceof Player player && !player.isShiftKeyDown() && !player.getItemBySlot(EquipmentSlot.FEET).is(EtceteraItems.ADVENTURERS_BOOTS.get())) {
             world.removeBlock(pos, false);
         }
     }
 
     @Override
-    public BlockState rotate(BlockState state, Rotation rotation) {
+    public @NotNull BlockState rotate(BlockState state, Rotation rotation) {
         return state.setValue(FACING, rotation.rotate(state.getValue(FACING)));
     }
 
     @Override
-    public BlockState mirror(BlockState state, Mirror mirror) {
+    public @NotNull BlockState mirror(BlockState state, Mirror mirror) {
         return state.rotate(mirror.getRotation(state.getValue(FACING)));
     }
 

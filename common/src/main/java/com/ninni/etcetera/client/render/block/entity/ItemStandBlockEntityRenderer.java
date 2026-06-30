@@ -43,7 +43,7 @@ public class ItemStandBlockEntityRenderer implements BlockEntityRenderer<ItemSta
             this.itemRenderer.renderStatic(
                     itemStack,
                     ItemDisplayContext.FIXED,
-                    entity.getBlockState().is(EtceteraBlocks.GLOW_ITEM_STAND) ? LightTexture.FULL_BRIGHT : light,
+                    entity.getBlockState().is(EtceteraBlocks.GLOW_ITEM_STAND.get()) ? LightTexture.FULL_BRIGHT : light,
                     OverlayTexture.NO_OVERLAY,
                     matrices,
                     vertexConsumers,

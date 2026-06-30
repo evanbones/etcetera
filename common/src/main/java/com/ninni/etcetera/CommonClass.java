@@ -16,6 +16,10 @@ public class CommonClass {
         EtceteraCreativeModeTab.init();
         EtceteraItems.init();
         EtceteraBlocks.init();
+    }
+
+    public static void setup() {
+        EtceteraStats.setup();
         EtceteraVanillaIntegration.serverInit();
     }
 }

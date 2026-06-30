@@ -22,6 +22,9 @@ public class EtceteraStats {
             STATS.register("open_prickly_can", () -> ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "open_prickly_can"));
 
     public static void init() {
+    }
+
+    public static void setup() {
         registerStat(ROTATE_DICE, StatFormatter.DEFAULT);
         registerStat(INTERACT_WITH_ITEM_STAND, StatFormatter.DEFAULT);
         registerStat(OPEN_PRICKLY_CAN, StatFormatter.DEFAULT);

@@ -21,7 +21,7 @@ public class TintedLightBulbBlockEntity extends BlockEntity {
     private String name;
 
     public TintedLightBulbBlockEntity(BlockPos pos, BlockState state) {
-        super(EtceteraBlockEntityType.TINTED_LIGHT_BULB, pos, state);
+        super(EtceteraBlockEntityType.TINTED_LIGHT_BULB.get(), pos, state);
     }
 
     @Override

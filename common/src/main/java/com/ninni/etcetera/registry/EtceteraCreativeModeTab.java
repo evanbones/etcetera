@@ -22,126 +22,126 @@ public class EtceteraCreativeModeTab {
     public static final RegistrationProvider<CreativeModeTab> CREATIVE_MODE_TABS = RegistrationProvider.get(Registries.CREATIVE_MODE_TAB, Constants.MOD_ID);
 
     public static final CreativeModeTab ITEM_GROUP = register("item_group", CreativeModeTab.builder(CreativeModeTab.Row.TOP, 0)
-            .icon(() -> new ItemStack(ETCETERA))
+            .icon(() -> new ItemStack(ETCETERA.get()))
             .title(Component.translatable("etcetera.item_group"))
             .displayItems((featureFlagSet, output) -> {
-                output.accept(RAW_BISMUTH_BLOCK);
-                output.accept(BISMUTH_BLOCK);
-                output.accept(BISMUTH_BARS);
-                output.accept(NETHER_BISMUTH_ORE);
-                output.accept(RAW_BISMUTH);
-                output.accept(BISMUTH_INGOT);
-                output.accept(IRIDESCENT_GLASS);
-                output.accept(IRIDESCENT_GLASS_PANE);
-                output.accept(IRIDESCENT_TERRACOTTA);
-                output.accept(IRIDESCENT_GLAZED_TERRACOTTA);
-                output.accept(IRIDESCENT_CONCRETE);
-                output.accept(IRIDESCENT_WOOL);
-                output.accept(IRIDESCENT_LANTERN);
+                output.accept(RAW_BISMUTH_BLOCK.get());
+                output.accept(BISMUTH_BLOCK.get());
+                output.accept(BISMUTH_BARS.get());
+                output.accept(NETHER_BISMUTH_ORE.get());
+                output.accept(RAW_BISMUTH.get());
+                output.accept(BISMUTH_INGOT.get());
+                output.accept(IRIDESCENT_GLASS.get());
+                output.accept(IRIDESCENT_GLASS_PANE.get());
+                output.accept(IRIDESCENT_TERRACOTTA.get());
+                output.accept(IRIDESCENT_GLAZED_TERRACOTTA.get());
+                output.accept(IRIDESCENT_CONCRETE.get());
+                output.accept(IRIDESCENT_WOOL.get());
+                output.accept(IRIDESCENT_LANTERN.get());
 
-                output.accept(CHISEL);
-                output.accept(WRENCH);
-                output.accept(HAMMER);
-                output.accept(HANDBELL);
+                output.accept(CHISEL.get());
+                output.accept(WRENCH.get());
+                output.accept(HAMMER.get());
+                output.accept(HANDBELL.get());
 
-                output.accept(ITEM_LABEL);
+                output.accept(ITEM_LABEL.get());
 
-                output.accept(DRUM);
+                output.accept(DRUM.get());
 
-                output.accept(DICE);
+                output.accept(DICE.get());
 
-                output.accept(FRAME);
+                output.accept(FRAME.get());
 
-                output.accept(PRICKLY_CAN);
+                output.accept(PRICKLY_CAN.get());
 
-                output.accept(DREAM_CATCHER);
+                output.accept(DREAM_CATCHER.get());
 
-                output.accept(BOUQUET);
-                output.accept(TERRACOTTA_VASE);
+                output.accept(BOUQUET.get());
+                output.accept(TERRACOTTA_VASE.get());
 
-                output.accept(ITEM_STAND);
-                output.accept(GLOW_ITEM_STAND);
+                output.accept(ITEM_STAND.get());
+                output.accept(GLOW_ITEM_STAND.get());
 
                 featureFlagSet.holders().lookup(Registries.PAINTING_VARIANT).ifPresent((wrapper) -> addEtcPaintings(output, wrapper, (registryEntry) -> registryEntry.is(EtceteraTags.ETCETERA_PAINTING_VARIANTS)));
 
-                output.accept(SQUID_LAMP);
-                output.accept(TIDAL_HELMET);
-                output.accept(TURTLE_RAFT);
+                output.accept(SQUID_LAMP.get());
+                output.accept(TIDAL_HELMET.get());
+                output.accept(TURTLE_RAFT.get());
 
-                output.accept(MUSIC_DISC_SQUALL);
+                output.accept(MUSIC_DISC_SQUALL.get());
 
-                output.accept(ADVENTURERS_BOOTS);
+                output.accept(ADVENTURERS_BOOTS.get());
 
-                output.accept(GRAVEL_PATH);
-                output.accept(SAND_PATH);
-                output.accept(RED_SAND_PATH);
-                output.accept(SNOW_PATH);
+                output.accept(GRAVEL_PATH.get());
+                output.accept(SAND_PATH.get());
+                output.accept(RED_SAND_PATH.get());
+                output.accept(SNOW_PATH.get());
 
-                output.accept(CRUMBLING_STONE);
-                output.accept(WAXED_CRUMBLING_STONE);
-                output.accept(LEVELED_STONE);
-                output.accept(LEVELED_STONE_STAIRS);
-                output.accept(LEVELED_STONE_SLAB);
+                output.accept(CRUMBLING_STONE.get());
+                output.accept(WAXED_CRUMBLING_STONE.get());
+                output.accept(LEVELED_STONE.get());
+                output.accept(LEVELED_STONE_STAIRS.get());
+                output.accept(LEVELED_STONE_SLAB.get());
 
-                output.accept(LIGHT_BULB);
-                output.accept(TINTED_LIGHT_BULB);
+                output.accept(LIGHT_BULB.get());
+                output.accept(TINTED_LIGHT_BULB.get());
 
-                output.accept(GOLDEN_GOLEM);
+                output.accept(GOLDEN_GOLEM.get());
 
-                output.accept(WEAVER_SPAWN_EGG);
-                output.accept(SILKEN_SLACKS);
+                output.accept(WEAVER_SPAWN_EGG.get());
+                output.accept(SILKEN_SLACKS.get());
 
-                output.accept(CHAPPLE_SPAWN_EGG);
-                output.accept(EGGPLE);
-                output.accept(GOLDEN_EGGPLE);
+                output.accept(CHAPPLE_SPAWN_EGG.get());
+                output.accept(EGGPLE.get());
+                output.accept(GOLDEN_EGGPLE.get());
 
-                output.accept(COPPER_TAP);
+                output.accept(COPPER_TAP.get());
 
-                output.accept(RUBBER);
-                output.accept(RUBBER_BLOCK);
-                output.accept(RUBBER_BUTTON);
-                output.accept(RUBBER_CHICKEN);
-                output.accept(REDSTONE_WIRES);
-                output.accept(REDSTONE_WIRE_TORCH);
-                output.accept(REDSTONE_WIRE_COMPARATOR);
-                output.accept(REDSTONE_WIRE_REPEATER);
+                output.accept(RUBBER.get());
+                output.accept(RUBBER_BLOCK.get());
+                output.accept(RUBBER_BUTTON.get());
+                output.accept(RUBBER_CHICKEN.get());
+                output.accept(REDSTONE_WIRES.get());
+                output.accept(REDSTONE_WIRE_TORCH.get());
+                output.accept(REDSTONE_WIRE_COMPARATOR.get());
+                output.accept(REDSTONE_WIRE_REPEATER.get());
 
-                output.accept(COTTON_SEEDS);
-                output.accept(COTTON_FLOWER);
-                output.accept(WHITE_SWEATER);
-                output.accept(LIGHT_GRAY_SWEATER);
-                output.accept(GRAY_SWEATER);
-                output.accept(BLACK_SWEATER);
-                output.accept(BROWN_SWEATER);
-                output.accept(RED_SWEATER);
-                output.accept(ORANGE_SWEATER);
-                output.accept(YELLOW_SWEATER);
-                output.accept(LIME_SWEATER);
-                output.accept(GREEN_SWEATER);
-                output.accept(CYAN_SWEATER);
-                output.accept(LIGHT_BLUE_SWEATER);
-                output.accept(BLUE_SWEATER);
-                output.accept(PURPLE_SWEATER);
-                output.accept(MAGENTA_SWEATER);
-                output.accept(PINK_SWEATER);
-                output.accept(TRADER_ROBE);
-                output.accept(WHITE_HAT);
-                output.accept(LIGHT_GRAY_HAT);
-                output.accept(GRAY_HAT);
-                output.accept(BLACK_HAT);
-                output.accept(BROWN_HAT);
-                output.accept(RED_HAT);
-                output.accept(ORANGE_HAT);
-                output.accept(YELLOW_HAT);
-                output.accept(LIME_HAT);
-                output.accept(GREEN_HAT);
-                output.accept(CYAN_HAT);
-                output.accept(LIGHT_BLUE_HAT);
-                output.accept(BLUE_HAT);
-                output.accept(PURPLE_HAT);
-                output.accept(MAGENTA_HAT);
-                output.accept(PINK_HAT);
-                output.accept(TRADER_HOOD);
+                output.accept(COTTON_SEEDS.get());
+                output.accept(COTTON_FLOWER.get());
+                output.accept(WHITE_SWEATER.get());
+                output.accept(LIGHT_GRAY_SWEATER.get());
+                output.accept(GRAY_SWEATER.get());
+                output.accept(BLACK_SWEATER.get());
+                output.accept(BROWN_SWEATER.get());
+                output.accept(RED_SWEATER.get());
+                output.accept(ORANGE_SWEATER.get());
+                output.accept(YELLOW_SWEATER.get());
+                output.accept(LIME_SWEATER.get());
+                output.accept(GREEN_SWEATER.get());
+                output.accept(CYAN_SWEATER.get());
+                output.accept(LIGHT_BLUE_SWEATER.get());
+                output.accept(BLUE_SWEATER.get());
+                output.accept(PURPLE_SWEATER.get());
+                output.accept(MAGENTA_SWEATER.get());
+                output.accept(PINK_SWEATER.get());
+                output.accept(TRADER_ROBE.get());
+                output.accept(WHITE_HAT.get());
+                output.accept(LIGHT_GRAY_HAT.get());
+                output.accept(GRAY_HAT.get());
+                output.accept(BLACK_HAT.get());
+                output.accept(BROWN_HAT.get());
+                output.accept(RED_HAT.get());
+                output.accept(ORANGE_HAT.get());
+                output.accept(YELLOW_HAT.get());
+                output.accept(LIME_HAT.get());
+                output.accept(GREEN_HAT.get());
+                output.accept(CYAN_HAT.get());
+                output.accept(LIGHT_BLUE_HAT.get());
+                output.accept(BLUE_HAT.get());
+                output.accept(PURPLE_HAT.get());
+                output.accept(MAGENTA_HAT.get());
+                output.accept(PINK_HAT.get());
+                output.accept(TRADER_HOOD.get());
             }).build()
     );
 

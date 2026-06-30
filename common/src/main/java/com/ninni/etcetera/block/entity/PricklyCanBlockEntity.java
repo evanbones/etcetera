@@ -21,6 +21,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.NotNull;
 
 public class PricklyCanBlockEntity extends RandomizableContainerBlockEntity {
     private NonNullList<ItemStack> inventory;
@@ -28,27 +29,27 @@ public class PricklyCanBlockEntity extends RandomizableContainerBlockEntity {
     private Component customName;
 
     public PricklyCanBlockEntity(BlockPos pos, BlockState state) {
-        super(EtceteraBlockEntityType.PRICKLY_CAN, pos, state);
+        super(EtceteraBlockEntityType.PRICKLY_CAN.get(), pos, state);
         this.inventory = NonNullList.withSize(27, ItemStack.EMPTY);
         this.stateDefinition = new ContainerOpenersCounter() {
             @Override
-            protected void onOpen(Level world, BlockPos pos, BlockState state) {
+            protected void onOpen(@NotNull Level world, @NotNull BlockPos pos, @NotNull BlockState state) {
                 PricklyCanBlockEntity.this.playSound(EtceteraSoundEvents.BLOCK_PRICKLY_CAN_OPEN);
                 PricklyCanBlockEntity.this.setOpen(state, true);
             }
 
             @Override
-            protected void onClose(Level world, BlockPos pos, BlockState state) {
+            protected void onClose(@NotNull Level world, @NotNull BlockPos pos, @NotNull BlockState state) {
                 PricklyCanBlockEntity.this.playSound(EtceteraSoundEvents.BLOCK_PRICKLY_CAN_CLOSE);
                 PricklyCanBlockEntity.this.setOpen(state, false);
             }
 
             @Override
-            protected void openerCountChanged(Level world, BlockPos pos, BlockState state, int oldViewerCount, int newViewerCount) {
+            protected void openerCountChanged(@NotNull Level world, @NotNull BlockPos pos, @NotNull BlockState state, int oldViewerCount, int newViewerCount) {
             }
 
             @Override
-            protected boolean isOwnContainer(Player player) {
+            protected boolean isOwnContainer(@NotNull Player player) {
                 if (player.containerMenu instanceof PricklyCanScreenHandler) {
                     Container inventory = ((PricklyCanScreenHandler)player.containerMenu).getInventory();
                     return inventory == PricklyCanBlockEntity.this;
@@ -58,7 +59,7 @@ public class PricklyCanBlockEntity extends RandomizableContainerBlockEntity {
     }
 
     @Override
-    protected void saveAdditional(CompoundTag nbt, HolderLookup.Provider provider) {
+    protected void saveAdditional(@NotNull CompoundTag nbt, HolderLookup.@NotNull Provider provider) {
         super.saveAdditional(nbt, provider);
         if (!this.trySaveLootTable(nbt)) {
             ContainerHelper.saveAllItems(nbt, this.inventory, provider);
@@ -69,7 +70,7 @@ public class PricklyCanBlockEntity extends RandomizableContainerBlockEntity {
     }
 
     @Override
-    public void loadAdditional(CompoundTag nbt, HolderLookup.Provider provider) {
+    public void loadAdditional(@NotNull CompoundTag nbt, HolderLookup.@NotNull Provider provider) {
         super.loadAdditional(nbt, provider);
         this.inventory = NonNullList.withSize(this.getContainerSize(), ItemStack.EMPTY);
         if (!this.tryLoadLootTable(nbt)) {
@@ -86,34 +87,34 @@ public class PricklyCanBlockEntity extends RandomizableContainerBlockEntity {
     }
 
     @Override
-    protected NonNullList<ItemStack> getItems() {
+    protected @NotNull NonNullList<ItemStack> getItems() {
         return this.inventory;
     }
 
     @Override
-    protected void setItems(NonNullList<ItemStack> list) {
+    protected void setItems(@NotNull NonNullList<ItemStack> list) {
         this.inventory = list;
     }
 
     @Override
-    protected Component getDefaultName() {
+    protected @NotNull Component getDefaultName() {
         return Component.translatable("etcetera.container.prickly_can");
     }
 
     @Override
-    protected AbstractContainerMenu createMenu(int syncId, Inventory playerInventory) {
+    protected @NotNull AbstractContainerMenu createMenu(int syncId, @NotNull Inventory playerInventory) {
         return PricklyCanScreenHandler.createGeneric9x3(syncId, playerInventory, this);
     }
 
     @Override
-    public void startOpen(Player player) {
+    public void startOpen(@NotNull Player player) {
         if (!this.isRemoved() && !player.isSpectator()) {
             this.stateDefinition.incrementOpeners(player, this.getLevel(), this.getBlockPos(), this.getBlockState());
         }
     }
 
     @Override
-    public void stopOpen(Player player) {
+    public void stopOpen(@NotNull Player player) {
         if (!this.isRemoved() && !player.isSpectator()) {
             this.stateDefinition.decrementOpeners(player, this.getLevel(), this.getBlockPos(), this.getBlockState());
         }
@@ -136,7 +137,7 @@ public class PricklyCanBlockEntity extends RandomizableContainerBlockEntity {
     }
 
     @Override
-    public Component getName() {
+    public @NotNull Component getName() {
         return this.customName != null ? this.customName : this.getDefaultName();
     }
 

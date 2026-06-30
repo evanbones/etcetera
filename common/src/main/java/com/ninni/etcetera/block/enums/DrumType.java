@@ -5,10 +5,9 @@ import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import com.ninni.etcetera.registry.EtceteraSoundEvents;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.StringRepresentable;
+import org.jetbrains.annotations.NotNull;
 
 public enum DrumType implements StringRepresentable {
     CAJON("cajon"),
@@ -36,7 +35,7 @@ public enum DrumType implements StringRepresentable {
     }
 
     @Override
-    public String getSerializedName() {
+    public @NotNull String getSerializedName() {
         return name;
     }
 

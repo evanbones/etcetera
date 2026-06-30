@@ -27,6 +27,7 @@ import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 @SuppressWarnings("deprecation")
@@ -50,7 +51,7 @@ public class DreamCatcherBlock extends HorizontalDirectionalBlock implements Ent
     }
 
     @Override
-    public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
+    public @NotNull VoxelShape getShape(BlockState state, @NotNull BlockGetter world, @NotNull BlockPos pos, @NotNull CollisionContext context) {
         Direction direction = state.getValue(FACING);
         switch (direction) {
             case SOUTH -> {
@@ -69,7 +70,7 @@ public class DreamCatcherBlock extends HorizontalDirectionalBlock implements Ent
     }
 
     @Override
-    public BlockState updateShape(BlockState state, Direction direction, BlockState neighborState, LevelAccessor world, BlockPos pos, BlockPos neighborPos) {
+    public @NotNull BlockState updateShape(BlockState state, Direction direction, @NotNull BlockState neighborState, @NotNull LevelAccessor world, @NotNull BlockPos pos, @NotNull BlockPos neighborPos) {
         DoubleBlockHalf doubleBlockHalf = state.getValue(HALF);
         if (!(direction.getAxis() != Direction.Axis.Y || doubleBlockHalf == DoubleBlockHalf.LOWER != (direction == Direction.UP) || neighborState.is(this) && neighborState.getValue(HALF) != doubleBlockHalf)) {
             return Blocks.AIR.defaultBlockState();
@@ -93,13 +94,13 @@ public class DreamCatcherBlock extends HorizontalDirectionalBlock implements Ent
     }
 
     @Override
-    public void setPlacedBy(Level world, BlockPos pos, BlockState state, LivingEntity placer, ItemStack itemStack) {
+    public void setPlacedBy(Level world, BlockPos pos, BlockState state, LivingEntity placer, @NotNull ItemStack itemStack) {
         BlockPos blockPos = pos.below();
         world.setBlock(blockPos, this.defaultBlockState().setValue(HALF, DoubleBlockHalf.LOWER).setValue(FACING, state.getValue(FACING)), Block.UPDATE_ALL);
     }
 
     @Override
-    public boolean canSurvive(BlockState state, LevelReader world, BlockPos pos) {
+    public boolean canSurvive(BlockState state, @NotNull LevelReader world, @NotNull BlockPos pos) {
         if (state.getValue(HALF) == DoubleBlockHalf.LOWER) {
             BlockState blockState = world.getBlockState(pos.above());
             return blockState.is(this) && blockState.getValue(HALF) == DoubleBlockHalf.UPPER;
@@ -108,7 +109,7 @@ public class DreamCatcherBlock extends HorizontalDirectionalBlock implements Ent
     }
 
     @Override
-    public BlockState playerWillDestroy(Level world, BlockPos pos, BlockState state, Player player) {
+    public @NotNull BlockState playerWillDestroy(Level world, @NotNull BlockPos pos, @NotNull BlockState state, @NotNull Player player) {
         if (!world.isClientSide && player.isCreative()) {
             BlockPos blockPos;
             BlockState blockState;
@@ -135,23 +136,23 @@ public class DreamCatcherBlock extends HorizontalDirectionalBlock implements Ent
 
     @Nullable
     @Override
-    public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+    public BlockEntity newBlockEntity(@NotNull BlockPos pos, @NotNull BlockState state) {
         return new DreamCatcherBlockEntity(pos, state);
     }
 
     @Override
-    public RenderShape getRenderShape(BlockState state) {
+    public @NotNull RenderShape getRenderShape(@NotNull BlockState state) {
         return RenderShape.MODEL;
     }
 
     @Nullable
     @Override
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level world, BlockState state, BlockEntityType<T> type) {
-        return checkType(type, EtceteraBlockEntityType.DREAM_CATCHER, DreamCatcherBlockEntity::tick);
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(@NotNull Level world, @NotNull BlockState state, @NotNull BlockEntityType<T> type) {
+        return checkType(type, EtceteraBlockEntityType.DREAM_CATCHER.get(), DreamCatcherBlockEntity::tick);
     }
 
     @Override
-    protected MapCodec<? extends HorizontalDirectionalBlock> codec() {
+    protected @NotNull MapCodec<? extends HorizontalDirectionalBlock> codec() {
         return CODEC;
     }
 }

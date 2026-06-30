@@ -15,6 +15,7 @@ import net.minecraft.world.Clearable;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.gameevent.GameEvent;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class ItemStandBlockEntity extends BlockEntity implements Clearable {
@@ -25,7 +26,7 @@ public class ItemStandBlockEntity extends BlockEntity implements Clearable {
     }
 
     public ItemStandBlockEntity(BlockPos pos, BlockState state) {
-        this(EtceteraBlockEntityType.ITEM_STAND, pos, state);
+        this(EtceteraBlockEntityType.ITEM_STAND.get(), pos, state);
     }
 
     public NonNullList<ItemStack> getItemsDisplayed() {
@@ -33,21 +34,21 @@ public class ItemStandBlockEntity extends BlockEntity implements Clearable {
     }
 
     @Override
-    public CompoundTag getUpdateTag(HolderLookup.Provider provider) {
+    public @NotNull CompoundTag getUpdateTag(HolderLookup.@NotNull Provider provider) {
         CompoundTag nbtCompound = new CompoundTag();
         ContainerHelper.saveAllItems(nbtCompound, this.itemsDisplayed, provider);
         return nbtCompound;
     }
 
     @Override
-    public void loadAdditional(CompoundTag nbt, HolderLookup.Provider provider) {
+    public void loadAdditional(@NotNull CompoundTag nbt, HolderLookup.@NotNull Provider provider) {
         super.loadAdditional(nbt, provider);
         this.itemsDisplayed.clear();
         ContainerHelper.loadAllItems(nbt, this.itemsDisplayed, provider);
     }
 
     @Override
-    protected void saveAdditional(CompoundTag nbt, HolderLookup.Provider provider) {
+    protected void saveAdditional(@NotNull CompoundTag nbt, HolderLookup.@NotNull Provider provider) {
         super.saveAdditional(nbt, provider);
         ContainerHelper.saveAllItems(nbt, this.itemsDisplayed, provider);
     }

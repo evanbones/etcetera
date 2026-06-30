@@ -36,7 +36,7 @@ public class RubberCauldronBlock extends AbstractCauldronBlock {
     @Override
     protected @NotNull InteractionResult useWithoutItem(BlockState state, @NotNull Level world, @NotNull BlockPos pos, @NotNull Player player, @NotNull BlockHitResult hit) {
         if (state.getValue(SOLID) == 3) {
-            player.getInventory().add(EtceteraItems.RUBBER_BLOCK.getDefaultInstance());
+            player.getInventory().add(EtceteraItems.RUBBER_BLOCK.get().getDefaultInstance());
             world.setBlock(pos, Blocks.CAULDRON.defaultBlockState(), 3);
             return InteractionResult.sidedSuccess(world.isClientSide);
         }
@@ -47,7 +47,7 @@ public class RubberCauldronBlock extends AbstractCauldronBlock {
     public void randomTick(BlockState state, ServerLevel world, BlockPos pos, @NotNull RandomSource random) {
         int i = state.getValue(SOLID);
         BlockState state2 = world.getBlockState(pos.above());
-        if (i < 3 && state2.is(EtceteraBlocks.COPPER_TAP) && state2.getValue(CoppertapBlock.POWERED)) {
+        if (i < 3 && state2.is(EtceteraBlocks.COPPER_TAP.get()) && state2.getValue(CoppertapBlock.POWERED)) {
             if (random.nextInt(7) == 0) {
                 world.setBlock(pos, state.setValue(SOLID, i + 1), 2);
             }

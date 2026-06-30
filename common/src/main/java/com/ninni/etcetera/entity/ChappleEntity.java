@@ -165,7 +165,7 @@ public class ChappleEntity extends Chicken implements Shearable {
 
     @Override
     public ChappleEntity getBreedOffspring(@NotNull ServerLevel serverWorld, @NotNull AgeableMob passiveEntity) {
-        ChappleEntity chapple = EtceteraEntityType.CHAPPLE.create(serverWorld);
+        ChappleEntity chapple = EtceteraEntityType.CHAPPLE.get().create(serverWorld);
         if (chapple != null) {
             chapple.setType(this.chooseBabyType((ChappleEntity) passiveEntity));
         }

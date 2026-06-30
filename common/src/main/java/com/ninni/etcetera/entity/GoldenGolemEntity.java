@@ -99,7 +99,7 @@ public class GoldenGolemEntity extends PathfinderMob {
     }
 
     public void dropAsItem(boolean broken) {
-        ItemStack stack = new ItemStack(EtceteraItems.GOLDEN_GOLEM);
+        ItemStack stack = new ItemStack(EtceteraItems.GOLDEN_GOLEM.get());
 
         CompoundTag nbt = new CompoundTag();
         nbt.putInt("HealingAmount", this.getHealingAmount());
@@ -261,7 +261,7 @@ public class GoldenGolemEntity extends PathfinderMob {
     @Nullable
     @Override
     public ItemStack getPickResult() {
-        return EtceteraItems.GOLDEN_GOLEM.getDefaultInstance();
+        return EtceteraItems.GOLDEN_GOLEM.get().getDefaultInstance();
     }
 
     @Override

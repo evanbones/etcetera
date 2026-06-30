@@ -39,7 +39,7 @@ public abstract class LivingEntityMixin extends Entity implements Attackable {
     private void makeCobwebClimbable(CallbackInfoReturnable<Boolean> cir) {
         BlockPos blockPos = this.blockPosition();
         BlockState blockState = this.level().getBlockState(blockPos);
-        if (blockState.is(Blocks.COBWEB) && this.getItemBySlot(EquipmentSlot.LEGS).is(EtceteraItems.SILKEN_SLACKS)) {
+        if (blockState.is(Blocks.COBWEB) && this.getItemBySlot(EquipmentSlot.LEGS).is(EtceteraItems.SILKEN_SLACKS.get())) {
             this.lastClimbablePos = Optional.of(blockPos);
             cir.setReturnValue(true);
         }
@@ -48,8 +48,8 @@ public abstract class LivingEntityMixin extends Entity implements Attackable {
     @Inject(method = "aiStep", at = @At("HEAD"))
     private void addFootsteps(CallbackInfo ci) {
         if (etcetera$footstepCooldown > 0) etcetera$footstepCooldown--;
-        if (!this.level().isClientSide && etcetera$footstepCooldown == 0 && this.getItemBySlot(EquipmentSlot.FEET).is(EtceteraItems.ADVENTURERS_BOOTS) && this.onGround() && !this.isInWater()) {
-            BlockState blockState = EtceteraBlocks.FOOTSTEPS.defaultBlockState().setValue(HorizontalDirectionalBlock.FACING, this.getDirection());
+        if (!this.level().isClientSide && etcetera$footstepCooldown == 0 && this.getItemBySlot(EquipmentSlot.FEET).is(EtceteraItems.ADVENTURERS_BOOTS.get()) && this.onGround() && !this.isInWater()) {
+            BlockState blockState = EtceteraBlocks.FOOTSTEPS.get().defaultBlockState().setValue(HorizontalDirectionalBlock.FACING, this.getDirection());
             BlockPos blockPos = this.blockPosition();
             if ((this.level().getBlockState(blockPos).isAir() || this.level().getBlockState(blockPos).canBeReplaced()) && this.level().getBlockState(blockPos.below()).isCollisionShapeFullBlock(this.level(), blockPos.below())) {
                 this.level().setBlockAndUpdate(blockPos, blockState);

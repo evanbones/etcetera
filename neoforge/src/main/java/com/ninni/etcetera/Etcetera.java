@@ -21,6 +21,8 @@ public class Etcetera {
 
     public Etcetera(IEventBus modEventBus, ModContainer modContainer) {
         MOD_EVENT_BUS = modEventBus;
+        CommonClass.init();
+
         modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(this::buildCreativeTabs);
 
@@ -39,84 +41,84 @@ public class Etcetera {
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-        CommonClass.init();
+        event.enqueueWork(CommonClass::setup);
     }
 
     private void buildCreativeTabs(BuildCreativeModeTabContentsEvent event) {
         var tabKey = event.getTabKey();
         if (tabKey == CreativeModeTabs.BUILDING_BLOCKS) {
-            addAfter(event, Items.SMOOTH_QUARTZ_SLAB, BISMUTH_BLOCK, BISMUTH_BARS);
-            addAfter(event, Items.SMOOTH_STONE_SLAB, LEVELED_STONE, CRUMBLING_STONE, WAXED_CRUMBLING_STONE, LEVELED_STONE_STAIRS, LEVELED_STONE_SLAB);
-            addAfter(event, Items.MUD_BRICK_WALL, RUBBER_BLOCK, RUBBER_BUTTON);
+            addAfter(event, Items.SMOOTH_QUARTZ_SLAB, BISMUTH_BLOCK.get(), BISMUTH_BARS.get());
+            addAfter(event, Items.SMOOTH_STONE_SLAB, LEVELED_STONE.get(), CRUMBLING_STONE.get(), WAXED_CRUMBLING_STONE.get(), LEVELED_STONE_STAIRS.get(), LEVELED_STONE_SLAB.get());
+            addAfter(event, Items.MUD_BRICK_WALL, RUBBER_BLOCK.get(), RUBBER_BUTTON.get());
         } else if (tabKey == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
-            addAfter(event, Items.SOUL_LANTERN, LIGHT_BULB, TINTED_LIGHT_BULB);
-            addAfter(event, Items.END_ROD, SQUID_LAMP);
-            addAfter(event, Items.SEA_LANTERN, IRIDESCENT_LANTERN);
-            addAfter(event, Items.JUKEBOX, DRUM);
-            addAfter(event, Items.SCAFFOLDING, FRAME);
-            addAfter(event, Items.DECORATED_POT, TERRACOTTA_VASE);
-            addAfter(event, Items.GLOW_ITEM_FRAME, ITEM_STAND, GLOW_ITEM_STAND);
-            addAfter(event, Items.ENDER_CHEST, PRICKLY_CAN);
-            addAfter(event, Items.SUSPICIOUS_GRAVEL, CRUMBLING_STONE, WAXED_CRUMBLING_STONE);
-            addAfter(event, Items.BELL, DREAM_CATCHER);
-            addAfter(event, Items.CAULDRON, COPPER_TAP);
-            addBefore(event, Items.SKELETON_SKULL, RUBBER_CHICKEN);
+            addAfter(event, Items.SOUL_LANTERN, LIGHT_BULB.get(), TINTED_LIGHT_BULB.get());
+            addAfter(event, Items.END_ROD, SQUID_LAMP.get());
+            addAfter(event, Items.SEA_LANTERN, IRIDESCENT_LANTERN.get());
+            addAfter(event, Items.JUKEBOX, DRUM.get());
+            addAfter(event, Items.SCAFFOLDING, FRAME.get());
+            addAfter(event, Items.DECORATED_POT, TERRACOTTA_VASE.get());
+            addAfter(event, Items.GLOW_ITEM_FRAME, ITEM_STAND.get(), GLOW_ITEM_STAND.get());
+            addAfter(event, Items.ENDER_CHEST, PRICKLY_CAN.get());
+            addAfter(event, Items.SUSPICIOUS_GRAVEL, CRUMBLING_STONE.get(), WAXED_CRUMBLING_STONE.get());
+            addAfter(event, Items.BELL, DREAM_CATCHER.get());
+            addAfter(event, Items.CAULDRON, COPPER_TAP.get());
+            addBefore(event, Items.SKELETON_SKULL, RUBBER_CHICKEN.get());
         } else if (tabKey == CreativeModeTabs.REDSTONE_BLOCKS) {
-            addAfter(event, Items.COMPARATOR, REDSTONE_WIRES, REDSTONE_WIRE_TORCH, REDSTONE_WIRE_REPEATER, REDSTONE_WIRE_COMPARATOR);
-            addAfter(event, Items.HEAVY_WEIGHTED_PRESSURE_PLATE, DRUM);
-            addAfter(event, Items.WHITE_WOOL, DICE);
-            addAfter(event, Items.BARREL, PRICKLY_CAN);
-            addAfter(event, Items.STONE_BUTTON, RUBBER_BUTTON);
+            addAfter(event, Items.COMPARATOR, REDSTONE_WIRES.get(), REDSTONE_WIRE_TORCH.get(), REDSTONE_WIRE_REPEATER.get(), REDSTONE_WIRE_COMPARATOR.get());
+            addAfter(event, Items.HEAVY_WEIGHTED_PRESSURE_PLATE, DRUM.get());
+            addAfter(event, Items.WHITE_WOOL, DICE.get());
+            addAfter(event, Items.BARREL, PRICKLY_CAN.get());
+            addAfter(event, Items.STONE_BUTTON, RUBBER_BUTTON.get());
         } else if (tabKey == CreativeModeTabs.SPAWN_EGGS) {
-            addAfter(event, Items.CAVE_SPIDER_SPAWN_EGG, CHAPPLE_SPAWN_EGG);
-            addAfter(event, Items.WARDEN_SPAWN_EGG, WEAVER_SPAWN_EGG);
+            addAfter(event, Items.CAVE_SPIDER_SPAWN_EGG, CHAPPLE_SPAWN_EGG.get());
+            addAfter(event, Items.WARDEN_SPAWN_EGG, WEAVER_SPAWN_EGG.get());
         } else if (tabKey == CreativeModeTabs.COMBAT) {
-            addAfter(event, Items.EGG, EGGPLE, GOLDEN_EGGPLE);
+            addAfter(event, Items.EGG, EGGPLE.get(), GOLDEN_EGGPLE.get());
             addAfter(event, Items.TURTLE_HELMET,
-                    TIDAL_HELMET,
-                    SILKEN_SLACKS,
-                    ADVENTURERS_BOOTS,
-                    WHITE_HAT,
-                    TRADER_HOOD,
-                    WHITE_SWEATER,
-                    TRADER_ROBE
+                    TIDAL_HELMET.get(),
+                    SILKEN_SLACKS.get(),
+                    ADVENTURERS_BOOTS.get(),
+                    WHITE_HAT.get(),
+                    TRADER_HOOD.get(),
+                    WHITE_SWEATER.get(),
+                    TRADER_ROBE.get()
             );
-            addAfter(event, Items.TRIDENT, HAMMER);
-            addBefore(event, Items.TOTEM_OF_UNDYING, GOLDEN_GOLEM);
+            addAfter(event, Items.TRIDENT, HAMMER.get());
+            addBefore(event, Items.TOTEM_OF_UNDYING, GOLDEN_GOLEM.get());
         } else if (tabKey == CreativeModeTabs.TOOLS_AND_UTILITIES) {
-            addAfter(event, Items.BRUSH, HAMMER, CHISEL, WRENCH, HANDBELL);
-            addAfter(event, Items.BAMBOO_CHEST_RAFT, TURTLE_RAFT);
-            addAfter(event, Items.NAME_TAG, ITEM_LABEL);
-            addBefore(event, Items.MUSIC_DISC_OTHERSIDE, MUSIC_DISC_SQUALL);
+            addAfter(event, Items.BRUSH, HAMMER.get(), CHISEL.get(), WRENCH.get(), HANDBELL.get());
+            addAfter(event, Items.BAMBOO_CHEST_RAFT, TURTLE_RAFT.get());
+            addAfter(event, Items.NAME_TAG, ITEM_LABEL.get());
+            addBefore(event, Items.MUSIC_DISC_OTHERSIDE, MUSIC_DISC_SQUALL.get());
         } else if (tabKey == CreativeModeTabs.NATURAL_BLOCKS) {
-            addAfter(event, Items.GRAVEL, GRAVEL_PATH);
-            addAfter(event, Items.SAND, SAND_PATH);
-            addAfter(event, Items.RED_SAND, RED_SAND_PATH);
-            addAfter(event, Items.SNOW, SNOW_PATH);
-            addAfter(event, Items.NETHER_GOLD_ORE, NETHER_BISMUTH_ORE);
-            addAfter(event, Items.RAW_GOLD_BLOCK, RAW_BISMUTH_BLOCK);
-            addAfter(event, Items.PINK_PETALS, BOUQUET);
-            addAfter(event, Items.BEETROOT_SEEDS, COTTON_SEEDS);
+            addAfter(event, Items.GRAVEL, GRAVEL_PATH.get());
+            addAfter(event, Items.SAND, SAND_PATH.get());
+            addAfter(event, Items.RED_SAND, RED_SAND_PATH.get());
+            addAfter(event, Items.SNOW, SNOW_PATH.get());
+            addAfter(event, Items.NETHER_GOLD_ORE, NETHER_BISMUTH_ORE.get());
+            addAfter(event, Items.RAW_GOLD_BLOCK, RAW_BISMUTH_BLOCK.get());
+            addAfter(event, Items.PINK_PETALS, BOUQUET.get());
+            addAfter(event, Items.BEETROOT_SEEDS, COTTON_SEEDS.get());
         } else if (tabKey == CreativeModeTabs.COLORED_BLOCKS) {
-            addBefore(event, Items.WHITE_CONCRETE, IRIDESCENT_CONCRETE);
-            addBefore(event, Items.WHITE_WOOL, IRIDESCENT_WOOL);
-            addBefore(event, Items.WHITE_GLAZED_TERRACOTTA, IRIDESCENT_GLAZED_TERRACOTTA);
-            addAfter(event, Items.TERRACOTTA, IRIDESCENT_TERRACOTTA);
-            addAfter(event, Items.GLASS, IRIDESCENT_GLASS);
-            addAfter(event, Items.GLASS_PANE, IRIDESCENT_GLASS_PANE);
+            addBefore(event, Items.WHITE_CONCRETE, IRIDESCENT_CONCRETE.get());
+            addBefore(event, Items.WHITE_WOOL, IRIDESCENT_WOOL.get());
+            addBefore(event, Items.WHITE_GLAZED_TERRACOTTA, IRIDESCENT_GLAZED_TERRACOTTA.get());
+            addAfter(event, Items.TERRACOTTA, IRIDESCENT_TERRACOTTA.get());
+            addAfter(event, Items.GLASS, IRIDESCENT_GLASS.get());
+            addAfter(event, Items.GLASS_PANE, IRIDESCENT_GLASS_PANE.get());
             addAfter(event, Items.PINK_BED,
-                    WHITE_SWEATER, LIGHT_GRAY_SWEATER, GRAY_SWEATER, BLACK_SWEATER, BROWN_SWEATER, RED_SWEATER,
-                    ORANGE_SWEATER, YELLOW_SWEATER, LIME_SWEATER, GREEN_SWEATER, CYAN_SWEATER, LIGHT_BLUE_SWEATER,
-                    BLUE_SWEATER, PURPLE_SWEATER, MAGENTA_SWEATER, PINK_SWEATER, WHITE_HAT, LIGHT_GRAY_HAT,
-                    GRAY_HAT, BLACK_HAT, BROWN_HAT, RED_HAT, ORANGE_HAT, YELLOW_HAT, LIME_HAT, GREEN_HAT,
-                    CYAN_HAT, LIGHT_BLUE_HAT, BLUE_HAT, PURPLE_HAT, MAGENTA_HAT, PINK_HAT
+                    WHITE_SWEATER.get(), LIGHT_GRAY_SWEATER.get(), GRAY_SWEATER.get(), BLACK_SWEATER.get(), BROWN_SWEATER.get(), RED_SWEATER.get(),
+                    ORANGE_SWEATER.get(), YELLOW_SWEATER.get(), LIME_SWEATER.get(), GREEN_SWEATER.get(), CYAN_SWEATER.get(), LIGHT_BLUE_SWEATER.get(),
+                    BLUE_SWEATER.get(), PURPLE_SWEATER.get(), MAGENTA_SWEATER.get(), PINK_SWEATER.get(), WHITE_HAT.get(), LIGHT_GRAY_HAT.get(),
+                    GRAY_HAT.get(), BLACK_HAT.get(), BROWN_HAT.get(), RED_HAT.get(), ORANGE_HAT.get(), YELLOW_HAT.get(), LIME_HAT.get(), GREEN_HAT.get(),
+                    CYAN_HAT.get(), LIGHT_BLUE_HAT.get(), BLUE_HAT.get(), PURPLE_HAT.get(), MAGENTA_HAT.get(), PINK_HAT.get()
             );
         } else if (tabKey == CreativeModeTabs.INGREDIENTS) {
-            addAfter(event, Items.NETHERITE_INGOT, RUBBER);
-            addAfter(event, Items.EGG, EGGPLE, GOLDEN_EGGPLE);
-            addAfter(event, Items.RAW_GOLD, RAW_BISMUTH);
-            addAfter(event, Items.GOLD_INGOT, BISMUTH_INGOT);
-            addAfter(event, Items.WHEAT, COTTON_FLOWER);
+            addAfter(event, Items.NETHERITE_INGOT, RUBBER.get());
+            addAfter(event, Items.EGG, EGGPLE.get(), GOLDEN_EGGPLE.get());
+            addAfter(event, Items.RAW_GOLD, RAW_BISMUTH.get());
+            addAfter(event, Items.GOLD_INGOT, BISMUTH_INGOT.get());
+            addAfter(event, Items.WHEAT, COTTON_FLOWER.get());
         }
     }
 

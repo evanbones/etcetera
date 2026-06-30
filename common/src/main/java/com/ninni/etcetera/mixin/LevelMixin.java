@@ -22,7 +22,7 @@ public class LevelMixin {
             BlockPos blockPos = pos.relative(direction);
             if (!that.hasChunkAt(blockPos)) continue;
             BlockState blockState = that.getBlockState(blockPos);
-            if (blockState.is(EtceteraBlocks.REDSTONE_WIRE_COMPARATOR)) {
+            if (blockState.is(EtceteraBlocks.REDSTONE_WIRE_COMPARATOR.get())) {
                 that.neighborChanged(blockState, blockPos, block, pos, false);
                 continue;
             }
