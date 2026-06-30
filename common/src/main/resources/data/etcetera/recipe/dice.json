@@ -1,20 +1,20 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "###",
-    "#R#",
-    "###"
-  ],
-  "key": {
-    "#": {
-      "item": "minecraft:quartz"
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###",
+        "#R#",
+        "###"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:quartz"
+        },
+        "R": {
+            "item": "minecraft:redstone"
+        }
     },
-    "R": {
-      "item": "minecraft:redstone"
+    "result": {
+        "count": 1,
+        "id": "etcetera:dice"
     }
-  },
-  "result": {
-    "item": "etcetera:dice",
-    "count": 1
-  }
 }

@@ -1,20 +1,20 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " # ",
-    "#W#",
-    " # "
-  ],
-  "key": {
-    "#": {
-      "tag": "minecraft:wool"
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " # ",
+        "#W#",
+        " # "
+    ],
+    "key": {
+        "#": {
+            "tag": "minecraft:wool"
+        },
+        "W": {
+            "item": "etcetera:bismuth_ingot"
+        }
     },
-    "W": {
-      "item": "etcetera:bismuth_ingot"
+    "result": {
+        "count": 4,
+        "id": "etcetera:iridescent_wool"
     }
-  },
-  "result": {
-    "item": "etcetera:iridescent_wool",
-    "count": 4
-  }
 }

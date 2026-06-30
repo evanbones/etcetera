@@ -1,20 +1,20 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "###",
-    " / ",
-    " / "
-  ],
-  "key": {
-    "#": {
-      "item": "etcetera:bismuth_ingot"
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###",
+        " / ",
+        " / "
+    ],
+    "key": {
+        "#": {
+            "item": "etcetera:bismuth_ingot"
+        },
+        "/": {
+            "item": "minecraft:stick"
+        }
     },
-    "/": {
-      "item": "minecraft:stick"
+    "result": {
+        "count": 1,
+        "id": "etcetera:hammer"
     }
-  },
-  "result": {
-    "item": "etcetera:hammer",
-    "count": 1
-  }
 }

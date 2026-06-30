@@ -1,15 +1,15 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "###"
-  ],
-  "key": {
-    "#": {
-      "item": "etcetera:leveled_stone"
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###"
+    ],
+    "key": {
+        "#": {
+            "item": "etcetera:leveled_stone"
+        }
+    },
+    "result": {
+        "count": 6,
+        "id": "etcetera:leveled_stone_slab"
     }
-  },
-  "result": {
-    "item": "etcetera:leveled_stone_slab",
-    "count": 6
-  }
 }

@@ -1,17 +1,17 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "#  ",
-    "## ",
-    "###"
-  ],
-  "key": {
-    "#": {
-      "item": "etcetera:leveled_stone"
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#  ",
+        "## ",
+        "###"
+    ],
+    "key": {
+        "#": {
+            "item": "etcetera:leveled_stone"
+        }
+    },
+    "result": {
+        "count": 4,
+        "id": "etcetera:leveled_stone_stairs"
     }
-  },
-  "result": {
-    "item": "etcetera:leveled_stone_stairs",
-    "count": 4
-  }
 }

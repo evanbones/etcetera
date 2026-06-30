@@ -1,20 +1,20 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "###",
-    "###",
-    " P "
-  ],
-  "key": {
-    "#": {
-      "tag": "minecraft:small_flowers"
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###",
+        "###",
+        " P "
+    ],
+    "key": {
+        "#": {
+            "tag": "minecraft:small_flowers"
+        },
+        "P": {
+            "item": "minecraft:paper"
+        }
     },
-    "P": {
-      "item": "minecraft:paper"
+    "result": {
+        "count": 1,
+        "id": "etcetera:bouquet"
     }
-  },
-  "result": {
-    "item": "etcetera:bouquet",
-    "count": 1
-  }
 }

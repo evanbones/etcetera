@@ -17,12 +17,13 @@
               "function": "minecraft:set_count"
             },
             {
+              "function": "minecraft:enchanted_count_increase",
+              "enchantment": "minecraft:looting",
               "count": {
                 "type": "minecraft:uniform",
                 "max": 1.0,
                 "min": 0.0
-              },
-              "function": "minecraft:looting_enchant"
+              }
             }
           ],
           "name": "minecraft:feather"
@@ -51,12 +52,13 @@
               "function": "minecraft:furnace_smelt"
             },
             {
+              "function": "minecraft:enchanted_count_increase",
+              "enchantment": "minecraft:looting",
               "count": {
                 "type": "minecraft:uniform",
                 "max": 1.0,
                 "min": 0.0
-              },
-              "function": "minecraft:looting_enchant"
+              }
             }
           ],
           "name": "minecraft:chicken"

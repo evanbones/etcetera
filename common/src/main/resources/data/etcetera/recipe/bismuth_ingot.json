@@ -1,12 +1,12 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "ingredients": [
-    {
-      "item": "etcetera:bismuth_block"
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "etcetera:bismuth_block"
+        }
+    ],
+    "result": {
+        "count": 9,
+        "id": "etcetera:bismuth_ingot"
     }
-  ],
-  "result": {
-    "item": "etcetera:bismuth_ingot",
-    "count": 9
-  }
 }

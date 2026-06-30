@@ -1,23 +1,23 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "###",
-    "#G#",
-    " i "
-  ],
-  "key": {
-    "#": {
-      "item": "minecraft:glass"
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###",
+        "#G#",
+        " i "
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:glass"
+        },
+        "G": {
+            "item": "minecraft:glowstone"
+        },
+        "i": {
+            "item": "minecraft:iron_ingot"
+        }
     },
-    "G": {
-      "item": "minecraft:glowstone"
-    },
-    "i": {
-      "item": "minecraft:iron_ingot"
+    "result": {
+        "count": 4,
+        "id": "etcetera:light_bulb"
     }
-  },
-  "result": {
-    "item": "etcetera:light_bulb",
-    "count": 4
-  }
 }
