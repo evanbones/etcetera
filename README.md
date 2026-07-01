@@ -42,7 +42,7 @@ cetera. All these additions are made while keeping Minecraft's gameplay in mind 
   where the player strikes its top surface.
 * **Prickly Can** – A cactus-themed trashcan. Clicking the delete button in its interface instantly voids all items
   inside.
-* **Dream Catcher** – A hanging block (double block) that ticks at night, applying the Drowsy effect to nearby players
+* **Dream Catcher** – A hanging block that applies the Drowsy effect to nearby players at night
   (allowing them to sleep even if monsters are nearby) and granting Regeneration and Strength at dawn.
 * **Redstone Wires & Components** – Redstone wiring designed for underwater layouts:
     * **Redstone Wires** – Water-resistant redstone wire. It doesn't connect to vanilla redstone wire, allowing for
@@ -70,6 +70,8 @@ cetera. All these additions are made while keeping Minecraft's gameplay in mind 
 * **Copper Tap** – A valve block that can be toggled on/off to drip particles from the block behind it (water, lava,
   honey, crying obsidian, rubber). When attached to a log above a cauldron, it slowly extracts rubber into it.
 * **Custom Paths** – Shoveling Sand, Red Sand, Snow Blocks, or Gravel creates custom Path blocks.
+* **Rubber** - Obtained by tapping a tree log with a Copper Tap. Slightly less bouncy than Slime. Can be crafted into
+  Rubber Buttons, which are waterloggable.
 
 ### Mobs
 
