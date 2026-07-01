@@ -16,7 +16,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(AnvilBlock.class)
 public abstract class AnvilBlockMixin extends Block {
-
     public AnvilBlockMixin(Properties properties) {
         super(properties);
     }

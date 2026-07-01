@@ -1,5 +1,7 @@
 {
+	"parent": "minecraft:block/block",
 	"textures": {
+		"particle": "etcetera:item/handbell_model",
 		"0": "etcetera:item/handbell_model"
 	},
 	"elements": [

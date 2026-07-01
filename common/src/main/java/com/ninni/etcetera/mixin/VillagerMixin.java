@@ -2,7 +2,6 @@ package com.ninni.etcetera.mixin;
 
 import com.ninni.etcetera.registry.EtceteraTags;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.ReputationEventHandler;
 import net.minecraft.world.entity.npc.AbstractVillager;
 import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.npc.VillagerDataHolder;
@@ -14,9 +13,9 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Villager.class)
-public abstract class VillagerEntityMixin extends AbstractVillager implements ReputationEventHandler, VillagerDataHolder {
+public abstract class VillagerMixin extends AbstractVillager implements VillagerDataHolder {
 
-    public VillagerEntityMixin(EntityType<? extends AbstractVillager> entityType, Level world) {
+    public VillagerMixin(EntityType<? extends AbstractVillager> entityType, Level world) {
         super(entityType, world);
     }
 

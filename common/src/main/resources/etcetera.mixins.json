@@ -5,23 +5,22 @@
   "compatibilityLevel": "JAVA_18",
   "mixins": [
     "AnvilBlockMixin",
-    "AnvilScreenHandlerMixin",
+    "AnvilMenuMixin",
     "EntityMixin",
-    "MonsterMixin",
-    "LeveledCauldronBlockMixin",
+    "LayeredCauldronBlockMixin",
+    "LevelMixin",
     "LivingEntityMixin",
-    "PlayerEntityMixin",
+    "LootTableAccessor",
+    "MonsterMixin",
+    "PlayerMixin",
     "RedstoneWireBlockMixin",
     "SmithingTableBlockMixin",
-    "VillagerEntityMixin",
-    "LevelMixin",
-    "LootTableAccessor"
+    "VillagerMixin"
   ],
   "client": [
-    "client.ItemEntityRendererMixin",
-    "client.ItemModelsMixin",
     "client.ItemRendererMixin"
   ],
   "injectors": {
-    "defaultRequire": 1 }
+    "defaultRequire": 1
+  }
 }

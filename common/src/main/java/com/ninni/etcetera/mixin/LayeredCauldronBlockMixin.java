@@ -19,9 +19,8 @@ import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
 
 @Mixin(LayeredCauldronBlock.class)
-public abstract class LeveledCauldronBlockMixin extends AbstractCauldronBlock {
-
-    public LeveledCauldronBlockMixin(Properties properties, CauldronInteraction.InteractionMap behaviorMap) {
+public abstract class LayeredCauldronBlockMixin extends AbstractCauldronBlock {
+    public LayeredCauldronBlockMixin(Properties properties, CauldronInteraction.InteractionMap behaviorMap) {
         super(properties, behaviorMap);
     }
 

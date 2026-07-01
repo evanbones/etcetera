@@ -53,7 +53,7 @@ public class GoldenGolemModel<T extends GoldenGolemEntity> extends HierarchicalM
                         .addBox(-3.0F, 0.0F, -2.5F, 6.0F, 1.0F, 0.0F)
                         .texOffs(0, 0)
                         .addBox(-3.0F, -5.0F, -2.5F, 6.0F, 5.0F, 5.0F),
-                PartPose.rotation(0.0F, 0.0F, -0.5F)
+                PartPose.offset(0.0F, 0.0F, -0.5F)
         );
 
         PartDefinition arms = all.addOrReplaceChild(
@@ -67,7 +67,7 @@ public class GoldenGolemModel<T extends GoldenGolemEntity> extends HierarchicalM
                         .mirror()
                         .addBox(-2.0F, -1.0F, -1.5F, 1.0F, 3.0F, 2.0F)
                         .mirror(false),
-                PartPose.rotation(0.0F, 0.0F, 0.0F)
+                PartPose.offset(0.0F, 0.0F, 0.0F)
         );
 
         PartDefinition rightWing = all.addOrReplaceChild(
@@ -77,7 +77,7 @@ public class GoldenGolemModel<T extends GoldenGolemEntity> extends HierarchicalM
                         .mirror()
                         .addBox(0.0F, 0.0F, 0.0F, 0.0F, 3.0F, 8.0F)
                         .mirror(false),
-                PartPose.rotation(-0.5F, 0.5F, 1.0F)
+                PartPose.offset(-0.5F, 0.5F, 1.0F)
         );
 
         PartDefinition leftWing = all.addOrReplaceChild(
@@ -85,7 +85,7 @@ public class GoldenGolemModel<T extends GoldenGolemEntity> extends HierarchicalM
                 CubeListBuilder.create()
                         .texOffs(0, 2)
                         .addBox(0.0F, 0.0F, 0.0F, 0.0F, 3.0F, 8.0F),
-                PartPose.rotation(0.5F, 0.5F, 1.0F)
+                PartPose.offset(0.5F, 0.5F, 1.0F)
         );
 
         return LayerDefinition.create(modelData, 32, 16);
