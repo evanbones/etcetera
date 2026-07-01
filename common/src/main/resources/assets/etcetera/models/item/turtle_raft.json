@@ -1,5 +1,5 @@
 {
-  "parent": "item/generated",
+  "parent": "minecraft:item/generated",
   "textures": {
     "layer0": "etcetera:item/turtle_raft",
     "layer1": "etcetera:item/turtle_raft_overlay"

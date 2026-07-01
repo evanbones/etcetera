@@ -202,7 +202,8 @@ public class EtceteraClient implements ClientModInitializer {
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
             if (tintIndex > 0) return -1;
             DyedItemColor dyedColor = stack.get(DataComponents.DYED_COLOR);
-            return dyedColor != null ? dyedColor.rgb() : 0x3fa442;
+            int rgb = dyedColor != null ? dyedColor.rgb() : 0x3fa442;
+            return 0xFF000000 | rgb;
         }, EtceteraItems.TURTLE_RAFT.get());
     }
 
