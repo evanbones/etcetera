@@ -30,7 +30,7 @@
     "frame": "task",
     "hidden": false,
     "icon": {
-      "item": "etcetera:white_sweater"
+      "id": "etcetera:white_sweater"
     },
     "show_toast": true,
     "title": {

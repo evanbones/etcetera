@@ -34,7 +34,7 @@
     "frame": "task",
     "hidden": false,
     "icon": {
-      "item": "etcetera:trader_robe"
+      "id": "etcetera:trader_robe"
     },
     "show_toast": true,
     "title": {

@@ -22,7 +22,7 @@
     "frame": "task",
     "hidden": false,
     "icon": {
-      "item": "etcetera:squid_lamp"
+      "id": "etcetera:squid_lamp"
     },
     "show_toast": true,
     "title": {

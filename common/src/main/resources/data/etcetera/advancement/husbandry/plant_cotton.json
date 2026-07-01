@@ -21,7 +21,7 @@
     "frame": "task",
     "hidden": false,
     "icon": {
-      "item": "etcetera:cotton_flower"
+      "id": "etcetera:cotton_flower"
     },
     "show_toast": true,
     "title": {

@@ -22,7 +22,7 @@
     "frame": "task",
     "hidden": false,
     "icon": {
-      "item": "etcetera:tidal_helmet",
+      "id": "etcetera:tidal_helmet",
       "nbt": "{Damage:0}"
     },
     "show_toast": true,

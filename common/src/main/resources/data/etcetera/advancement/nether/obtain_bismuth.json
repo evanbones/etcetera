@@ -22,7 +22,7 @@
     "frame": "task",
     "hidden": false,
     "icon": {
-      "item": "etcetera:raw_bismuth"
+      "id": "etcetera:raw_bismuth"
     },
     "show_toast": true,
     "title": {

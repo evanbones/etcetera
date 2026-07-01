@@ -180,6 +180,7 @@ public class EtceteraClient implements ClientModInitializer {
     }
 
     private static void registerEntityModelLayers() {
+        EntityModelLayerRegistry.registerModelLayer(EtceteraEntityModelLayers.PLAYER_COTTON, CottonArmorModel::getTexturedModelData);
         EntityModelLayerRegistry.registerModelLayer(EtceteraEntityModelLayers.RUBBER_CHICKEN, RubberChickenModel::getTexturedModelData);
         EntityModelLayerRegistry.registerModelLayer(EtceteraEntityModelLayers.GOLDEN_GOLEM, GoldenGolemModel::getTexturedModelData);
         EntityModelLayerRegistry.registerModelLayer(EtceteraEntityModelLayers.COBWEB, CobwebProjectileModel::getTexturedModelData);
