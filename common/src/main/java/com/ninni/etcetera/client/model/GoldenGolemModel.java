@@ -43,7 +43,7 @@ public class GoldenGolemModel<T extends GoldenGolemEntity> extends HierarchicalM
         PartDefinition all = modelPartData.addOrReplaceChild(
                 ALL,
                 CubeListBuilder.create(),
-                PartPose.rotation(0.0F, 18.0F, 0.0F)
+                PartPose.offset(0.0F, 18.0F, 0.0F)
         );
 
         PartDefinition head = all.addOrReplaceChild(

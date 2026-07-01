@@ -53,7 +53,7 @@ public class ChappleModel<T extends Entity> extends AgeableListModel<T> {
                 CubeListBuilder.create()
                         .texOffs(0, 14)
                         .addBox(-2.0F, -6.0F, -2.0F, 4.0F, 6.0F, 3.0F),
-                PartPose.rotation(0.0F, 15.0F, -4.0F)
+                PartPose.offset(0.0F, 15.0F, -4.0F)
         );
 
         PartDefinition bill = head.addOrReplaceChild(
@@ -61,7 +61,7 @@ public class ChappleModel<T extends Entity> extends AgeableListModel<T> {
                 CubeListBuilder.create()
                         .texOffs(0, 23)
                         .addBox(-2.0F, -4.0F, -4.0F, 4.0F, 2.0F, 2.0F),
-                PartPose.rotation(0.0F, 0.0F, 0.0F)
+                PartPose.offset(0.0F, 0.0F, 0.0F)
         );
 
 
@@ -70,7 +70,7 @@ public class ChappleModel<T extends Entity> extends AgeableListModel<T> {
                 CubeListBuilder.create()
                         .texOffs(0, 27)
                         .addBox(-1.0F, -2.0F, -3.0F, 2.0F, 2.0F, 2.0F),
-                PartPose.rotation(0.0F, 0.0F, 0.0F)
+                PartPose.offset(0.0F, 0.0F, 0.0F)
         );
 
         PartDefinition body = modelPartData.addOrReplaceChild(
@@ -78,7 +78,7 @@ public class ChappleModel<T extends Entity> extends AgeableListModel<T> {
                 CubeListBuilder.create()
                         .texOffs(0, 0)
                         .addBox(-3.0F, -3.0F, -4.0F, 6.0F, 6.0F, 8.0F),
-                PartPose.rotation(0.0F, 16.0F, 0.0F)
+                PartPose.offset(0.0F, 16.0F, 0.0F)
         );
 
         PartDefinition stalk = body.addOrReplaceChild(
@@ -93,7 +93,7 @@ public class ChappleModel<T extends Entity> extends AgeableListModel<T> {
                 CubeListBuilder.create()
                         .texOffs(14, 14)
                         .addBox(-1.0F, 0.0F, -3.0F, 1.0F, 4.0F, 6.0F),
-                PartPose.rotation(4.0F, -3.0F, 0.0F)
+                PartPose.offset(4.0F, -3.0F, 0.0F)
         );
 
         PartDefinition right_wing = body.addOrReplaceChild(
@@ -103,7 +103,7 @@ public class ChappleModel<T extends Entity> extends AgeableListModel<T> {
                         .mirror()
                         .addBox(0.0F, 0.0F, -3.0F, 1.0F, 4.0F, 6.0F)
                         .mirror(false),
-                PartPose.rotation(-4.0F, -3.0F, 0.0F)
+                PartPose.offset(-4.0F, -3.0F, 0.0F)
         );
 
         PartDefinition left_leg = body.addOrReplaceChild(
@@ -111,7 +111,7 @@ public class ChappleModel<T extends Entity> extends AgeableListModel<T> {
                 CubeListBuilder.create()
                         .texOffs(9, 24)
                         .addBox(-1.0F, 0.0F, -3.0F, 3.0F, 5.0F, 3.0F),
-                PartPose.rotation(1.0F, 3.0F, 1.0F)
+                PartPose.offset(1.0F, 3.0F, 1.0F)
         );
 
         PartDefinition right_leg = body.addOrReplaceChild(
@@ -120,7 +120,7 @@ public class ChappleModel<T extends Entity> extends AgeableListModel<T> {
                         .texOffs(9, 24)
                         .mirror()
                         .addBox(-1.0F, 0.0F, -3.0F, 3.0F, 5.0F, 3.0F),
-                PartPose.rotation(-2.0F, 3.0F, 1.0F)
+                PartPose.offset(-2.0F, 3.0F, 1.0F)
         );
 
         return LayerDefinition.create(modelData, 32, 32);

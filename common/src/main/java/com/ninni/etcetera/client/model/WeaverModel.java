@@ -57,7 +57,7 @@ public class WeaverModel<T extends WeaverEntity> extends HierarchicalModel<T> {
                         .texOffs(80, 52)
                         .addBox(-3.0F, -2.5F, -4.0F, 6.0F, 5.0F, 7.0F)
                         .texOffs(80, 64).addBox(-3.0F, -2.5F, -4.0F, 6.0F, 5.0F, 7.0F, new CubeDeformation(0.5F)),
-                PartPose.rotation(0.0F, 15.5F, -3.0F)
+                PartPose.offset(0.0F, 15.5F, -3.0F)
         );
 
         PartDefinition head = neck.addOrReplaceChild(
@@ -69,7 +69,7 @@ public class WeaverModel<T extends WeaverEntity> extends HierarchicalModel<T> {
                         .addBox(-7.0F, -5.0F, -8.0F, 14.0F, 8.0F, 8.0F, new CubeDeformation(0.5F))
                         .texOffs(60, 52)
                         .addBox(-4.0F, -5.0F, 1.0F, 8.0F, 1.0F, 1.0F, new CubeDeformation(0.5F)),
-                PartPose.rotation(0.0F, -0.5F, -4.0F)
+                PartPose.offset(0.0F, -0.5F, -4.0F)
         );
 
         PartDefinition body = neck.addOrReplaceChild(
@@ -79,7 +79,7 @@ public class WeaverModel<T extends WeaverEntity> extends HierarchicalModel<T> {
                         .addBox(-10.0F, -13.0F, 0.0F, 20.0F, 16.0F, 20.0F)
                         .texOffs(0, 36)
                         .addBox(-10.0F, -13.0F, 0.4F, 20.0F, 16.0F, 20.0F, new CubeDeformation(0.5F)),
-                PartPose.rotation(0.0F, 0.5F, 3.0F)
+                PartPose.offset(0.0F, 0.5F, 3.0F)
         );
 
         PartDefinition leftFrontLeg = modelPartData.addOrReplaceChild(
@@ -89,7 +89,7 @@ public class WeaverModel<T extends WeaverEntity> extends HierarchicalModel<T> {
                         .addBox(0.0F, -1.0F, -1.0F, 20.0F, 2.0F, 2.0F)
                         .texOffs(0, 76)
                         .addBox(0.0F, -1.0F, -1.0F, 20.0F, 2.0F, 2.0F, new CubeDeformation(0.25F)),
-                PartPose.rotation(3.0F, 17.0F, -7.0F)
+                PartPose.offset(3.0F, 17.0F, -7.0F)
         );
 
         PartDefinition rightFrontLeg = modelPartData.addOrReplaceChild(
@@ -101,7 +101,7 @@ public class WeaverModel<T extends WeaverEntity> extends HierarchicalModel<T> {
                         .texOffs(0, 76).mirror()
                         .addBox(-20.0F, -1.0F, -1.0F, 20.0F, 2.0F, 2.0F, new CubeDeformation(0.25F))
                         .mirror(false),
-                PartPose.rotation(-3.0F, 17.0F, -7.0F)
+                PartPose.offset(-3.0F, 17.0F, -7.0F)
         );
 
         PartDefinition leftMiddleFrontLeg = modelPartData.addOrReplaceChild(
@@ -111,7 +111,7 @@ public class WeaverModel<T extends WeaverEntity> extends HierarchicalModel<T> {
                         .addBox(0.0F, -1.0F, -1.0F, 20.0F, 2.0F, 2.0F)
                         .texOffs(0, 76)
                         .addBox(0.0F, -1.0F, -1.0F, 20.0F, 2.0F, 2.0F, new CubeDeformation(0.25F)),
-                PartPose.rotation(3.0F, 17.0F, -4.0F)
+                PartPose.offset(3.0F, 17.0F, -4.0F)
         );
 
         PartDefinition rightMiddleFrontLeg = modelPartData.addOrReplaceChild(
@@ -123,7 +123,7 @@ public class WeaverModel<T extends WeaverEntity> extends HierarchicalModel<T> {
                         .texOffs(0, 76).mirror()
                         .addBox(-20.0F, -1.0F, -1.0F, 20.0F, 2.0F, 2.0F, new CubeDeformation(0.25F))
                         .mirror(false),
-                PartPose.rotation(-3.0F, 17.0F, -4.0F)
+                PartPose.offset(-3.0F, 17.0F, -4.0F)
         );
 
         PartDefinition leftMiddleHindLeg = modelPartData.addOrReplaceChild(
@@ -133,7 +133,7 @@ public class WeaverModel<T extends WeaverEntity> extends HierarchicalModel<T> {
                         .addBox(0.0F, -1.0F, -1.0F, 20.0F, 2.0F, 2.0F)
                         .texOffs(0, 76)
                         .addBox(0.0F, -1.0F, -1.0F, 20.0F, 2.0F, 2.0F, new CubeDeformation(0.25F)),
-                PartPose.rotation(3.0F, 17.0F, -1.0F)
+                PartPose.offset(3.0F, 17.0F, -1.0F)
         );
 
         PartDefinition rightMiddleHindLeg = modelPartData.addOrReplaceChild(
@@ -145,7 +145,7 @@ public class WeaverModel<T extends WeaverEntity> extends HierarchicalModel<T> {
                         .texOffs(0, 76).mirror()
                         .addBox(-20.0F, -1.0F, -1.0F, 20.0F, 2.0F, 2.0F, new CubeDeformation(0.25F))
                         .mirror(false),
-                PartPose.rotation(-3.0F, 17.0F, -1.0F)
+                PartPose.offset(-3.0F, 17.0F, -1.0F)
         );
 
         PartDefinition leftHindLeg = modelPartData.addOrReplaceChild(
@@ -155,7 +155,7 @@ public class WeaverModel<T extends WeaverEntity> extends HierarchicalModel<T> {
                         .addBox(0.0F, -1.0F, -1.0F, 20.0F, 2.0F, 2.0F)
                         .texOffs(0, 76)
                         .addBox(0.0F, -1.0F, -1.0F, 20.0F, 2.0F, 2.0F, new CubeDeformation(0.25F)),
-                PartPose.rotation(3.0F, 17.0F, 2.0F)
+                PartPose.offset(3.0F, 17.0F, 2.0F)
         );
 
         PartDefinition rightHindLeg = modelPartData.addOrReplaceChild(
@@ -167,7 +167,7 @@ public class WeaverModel<T extends WeaverEntity> extends HierarchicalModel<T> {
                         .texOffs(0, 76).mirror()
                         .addBox(-20.0F, -1.0F, -1.0F, 20.0F, 2.0F, 2.0F, new CubeDeformation(0.25F))
                         .mirror(false),
-                PartPose.rotation(-3.0F, 17.0F, 2.0F)
+                PartPose.offset(-3.0F, 17.0F, 2.0F)
         );
         return LayerDefinition.create(modelData, 112, 80);
     }
