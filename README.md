@@ -90,8 +90,7 @@ cetera. All these additions are made while keeping Minecraft's gameplay in mind 
 * **Tidal Helmet** – A reinforced turtle helmet crafted with a Turtle Helmet and a Heart of the Sea. Grants Conduit
   Power (with a custom UI meter), durability, and strength.
 * **Silken Slacks** – Leggings dropped by the Weaver that allow the wearer to climb cobwebs like ladders.
-* **Adventurer's Boots** – Heavy boots that leave footprints on the ground as you walk. Wearing them prevents breaking
-  footsteps blocks.
+* **Adventurer's Boots** – Heavy boots that leave footprints on the ground as you walk.
 * **Turtle Raft** – A compact, single-passenger raft. Can be dyed like leather armor and decorated with banners. Immune
   to bubble columns and fits through 1-block gaps.
 * **Cotton Clothes** – Crafted from cotton crops (cotton seeds can be found in Plains villages or traded by farmers).
