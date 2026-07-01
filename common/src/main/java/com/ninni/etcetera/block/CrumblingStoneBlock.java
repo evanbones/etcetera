@@ -30,7 +30,7 @@ public class CrumblingStoneBlock extends AbstractCrumblingStoneBlock {
 
     @Override
     public void stepOn(@NotNull Level world, @NotNull BlockPos pos, @NotNull BlockState state, @NotNull Entity entity) {
-        this.tryBreakStone(world, state, pos, 25);
+        this.tryBreakStone(world, state, pos, com.ninni.etcetera.config.ModConfig.get().crumblingStoneInverseChanceStepOn);
         super.stepOn(world, pos, state, entity);
     }
 

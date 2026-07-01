@@ -3,5 +3,6 @@
   "textures": {
     "edge": "etcetera:block/iridescent_glass_pane_top",
     "pane": "etcetera:block/iridescent_glass"
-  }
+  },
+  "render_type": "minecraft:translucent"
 }

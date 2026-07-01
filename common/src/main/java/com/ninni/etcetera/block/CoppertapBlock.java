@@ -96,7 +96,7 @@ public class CoppertapBlock extends Block {
             double e = 0.2f;
             double f = 0.5 - state.getValue(FACING).getStepZ() * 0.2F;
 
-            if (random.nextInt(5) == 0) {
+            if (random.nextInt(com.ninni.etcetera.config.ModConfig.get().coppertapDripChance) == 0) {
                 if (state2.is(EtceteraTags.TAP_RUBBER))
                     world.addParticle(EtceteraParticleTypes.DRIPPING_RUBBER, (double) pos.getX() + d, (double) pos.getY() + e, (double) pos.getZ() + f, 0.0, 0.0, 0.0);
                 else if (state2.is(EtceteraTags.TAP_HONEY))
@@ -116,7 +116,7 @@ public class CoppertapBlock extends Block {
         super.randomTick(state, world, pos, random);
 
         if (state.getValue(POWERED) && world.getBlockState(pos.below()).is(Blocks.CAULDRON) && world.getBlockState(pos.relative(state.getValue(FACING).getOpposite())).is(BlockTags.LOGS_THAT_BURN)) {
-            if (random.nextInt(7) == 0) {
+            if (random.nextInt(com.ninni.etcetera.config.ModConfig.get().coppertapFillCauldronChance) == 0) {
                 world.setBlock(pos.below(), EtceteraBlocks.RUBBER_CAULDRON.get().defaultBlockState(), 3);
             }
         }

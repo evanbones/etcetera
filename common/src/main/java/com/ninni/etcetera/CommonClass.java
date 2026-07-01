@@ -16,6 +16,7 @@ public class CommonClass {
         EtceteraCreativeModeTab.init();
         EtceteraItems.init();
         EtceteraBlocks.init();
+        EtceteraParticleTypes.init();
     }
 
     public static void setup() {

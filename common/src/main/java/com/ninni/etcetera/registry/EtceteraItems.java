@@ -59,12 +59,12 @@ public class EtceteraItems {
     public static final RegistryObject<Item> GLOW_ITEM_STAND = register("glow_item_stand", () -> new BlockItem(EtceteraBlocks.GLOW_ITEM_STAND.get(), new Item.Properties()));
 
     public static final RegistryObject<Item> SQUID_LAMP = register("squid_lamp", () -> new StandingAndWallBlockItem(EtceteraBlocks.SQUID_LAMP.get(), EtceteraBlocks.WALL_SQUID_LAMP.get(), new Item.Properties(), Direction.DOWN));
-    public static final RegistryObject<Item> TIDAL_HELMET = register("tidal_helmet", () -> new ArmorItem(EtceteraArmorMaterials.TIDAL, ArmorItem.Type.HELMET, new Item.Properties().rarity(Rarity.RARE)));
+    public static final RegistryObject<Item> TIDAL_HELMET = register("tidal_helmet", () -> new ArmorItem(EtceteraArmorMaterials.TIDAL, ArmorItem.Type.HELMET, new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
     public static final RegistryObject<Item> TURTLE_RAFT = register("turtle_raft", () -> new TurtleRaftItem(new Item.Properties().stacksTo(1)));
 
     public static final RegistryObject<Item> MUSIC_DISC_SQUALL = register("music_disc_squall", () -> new Item(new Item.Properties().stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(ResourceKey.create(Registries.JUKEBOX_SONG, ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "squall")))));
 
-    public static final RegistryObject<Item> ADVENTURERS_BOOTS = register("adventurers_boots", () -> new ArmorItem(EtceteraArmorMaterials.ADVENTURER, ArmorItem.Type.BOOTS, new Item.Properties()));
+    public static final RegistryObject<Item> ADVENTURERS_BOOTS = register("adventurers_boots", () -> new ArmorItem(EtceteraArmorMaterials.ADVENTURER, ArmorItem.Type.BOOTS, new Item.Properties().stacksTo(1)));
 
     public static final RegistryObject<Item> SAND_PATH = register("sand_path", () -> new BlockItem(EtceteraBlocks.SAND_PATH.get(), new Item.Properties()));
     public static final RegistryObject<Item> RED_SAND_PATH = register("red_sand_path", () -> new BlockItem(EtceteraBlocks.RED_SAND_PATH.get(), new Item.Properties()));
@@ -83,7 +83,7 @@ public class EtceteraItems {
     public static final RegistryObject<Item> GOLDEN_GOLEM = register("golden_golem", () -> new GoldenGolemItem(new Item.Properties().stacksTo(1)));
 
     public static final RegistryObject<Item> WEAVER_SPAWN_EGG = register("weaver_spawn_egg", () -> new SpawnEggItem(EtceteraEntityType.WEAVER.get(), 0x191919, 0xFF1B00, new Item.Properties().stacksTo(64)));
-    public static final RegistryObject<Item> SILKEN_SLACKS = register("silken_slacks", () -> new ArmorItem(EtceteraArmorMaterials.SILK, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> SILKEN_SLACKS = register("silken_slacks", () -> new ArmorItem(EtceteraArmorMaterials.SILK, ArmorItem.Type.LEGGINGS, new Item.Properties().stacksTo(1)));
 
     public static final RegistryObject<Item> CHAPPLE_SPAWN_EGG = register("chapple_spawn_egg", () -> new SpawnEggItem(EtceteraEntityType.CHAPPLE.get(), 0xE41826, 0x548630, new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> EGGPLE = register("eggple", () -> new EggpleItem(false, new Item.Properties().stacksTo(16)));
@@ -102,40 +102,40 @@ public class EtceteraItems {
 
     public static final RegistryObject<Item> COTTON_SEEDS = register("cotton_seeds", () -> new ItemNameBlockItem(EtceteraBlocks.COTTON.get(), new Item.Properties()));
     public static final RegistryObject<Item> COTTON_FLOWER = register("cotton_flower", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> WHITE_SWEATER = register("white_sweater", () -> new SweaterItem(new Item.Properties().stacksTo(1), true));
-    public static final RegistryObject<Item> LIGHT_GRAY_SWEATER = register("light_gray_sweater", () -> new SweaterItem(new Item.Properties().stacksTo(1), true));
-    public static final RegistryObject<Item> GRAY_SWEATER = register("gray_sweater", () -> new SweaterItem(new Item.Properties().stacksTo(1), true));
-    public static final RegistryObject<Item> BLACK_SWEATER = register("black_sweater", () -> new SweaterItem(new Item.Properties().stacksTo(1), true));
-    public static final RegistryObject<Item> BROWN_SWEATER = register("brown_sweater", () -> new SweaterItem(new Item.Properties().stacksTo(1), true));
-    public static final RegistryObject<Item> RED_SWEATER = register("red_sweater", () -> new SweaterItem(new Item.Properties().stacksTo(1), true));
-    public static final RegistryObject<Item> ORANGE_SWEATER = register("orange_sweater", () -> new SweaterItem(new Item.Properties().stacksTo(1), true));
-    public static final RegistryObject<Item> YELLOW_SWEATER = register("yellow_sweater", () -> new SweaterItem(new Item.Properties().stacksTo(1), true));
-    public static final RegistryObject<Item> LIME_SWEATER = register("lime_sweater", () -> new SweaterItem(new Item.Properties().stacksTo(1), true));
-    public static final RegistryObject<Item> GREEN_SWEATER = register("green_sweater", () -> new SweaterItem(new Item.Properties().stacksTo(1), true));
-    public static final RegistryObject<Item> CYAN_SWEATER = register("cyan_sweater", () -> new SweaterItem(new Item.Properties().stacksTo(1), true));
-    public static final RegistryObject<Item> LIGHT_BLUE_SWEATER = register("light_blue_sweater", () -> new SweaterItem(new Item.Properties().stacksTo(1), true));
-    public static final RegistryObject<Item> BLUE_SWEATER = register("blue_sweater", () -> new SweaterItem(new Item.Properties().stacksTo(1), true));
-    public static final RegistryObject<Item> PURPLE_SWEATER = register("purple_sweater", () -> new SweaterItem(new Item.Properties().stacksTo(1), true));
-    public static final RegistryObject<Item> MAGENTA_SWEATER = register("magenta_sweater", () -> new SweaterItem(new Item.Properties().stacksTo(1), true));
-    public static final RegistryObject<Item> PINK_SWEATER = register("pink_sweater", () -> new SweaterItem(new Item.Properties().stacksTo(1), true));
-    public static final RegistryObject<Item> TRADER_ROBE = register("trader_robe", () -> new SweaterItem(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON), true));
-    public static final RegistryObject<Item> WHITE_HAT = register("white_hat", () -> new SweaterItem(new Item.Properties().stacksTo(1), false));
-    public static final RegistryObject<Item> LIGHT_GRAY_HAT = register("light_gray_hat", () -> new SweaterItem(new Item.Properties().stacksTo(1), false));
-    public static final RegistryObject<Item> GRAY_HAT = register("gray_hat", () -> new SweaterItem(new Item.Properties().stacksTo(1), false));
-    public static final RegistryObject<Item> BLACK_HAT = register("black_hat", () -> new SweaterItem(new Item.Properties().stacksTo(1), false));
-    public static final RegistryObject<Item> BROWN_HAT = register("brown_hat", () -> new SweaterItem(new Item.Properties().stacksTo(1), false));
-    public static final RegistryObject<Item> RED_HAT = register("red_hat", () -> new SweaterItem(new Item.Properties().stacksTo(1), false));
-    public static final RegistryObject<Item> ORANGE_HAT = register("orange_hat", () -> new SweaterItem(new Item.Properties().stacksTo(1), false));
-    public static final RegistryObject<Item> YELLOW_HAT = register("yellow_hat", () -> new SweaterItem(new Item.Properties().stacksTo(1), false));
-    public static final RegistryObject<Item> LIME_HAT = register("lime_hat", () -> new SweaterItem(new Item.Properties().stacksTo(1), false));
-    public static final RegistryObject<Item> GREEN_HAT = register("green_hat", () -> new SweaterItem(new Item.Properties().stacksTo(1), false));
-    public static final RegistryObject<Item> CYAN_HAT = register("cyan_hat", () -> new SweaterItem(new Item.Properties().stacksTo(1), false));
-    public static final RegistryObject<Item> LIGHT_BLUE_HAT = register("light_blue_hat", () -> new SweaterItem(new Item.Properties().stacksTo(1), false));
-    public static final RegistryObject<Item> BLUE_HAT = register("blue_hat", () -> new SweaterItem(new Item.Properties().stacksTo(1), false));
-    public static final RegistryObject<Item> PURPLE_HAT = register("purple_hat", () -> new SweaterItem(new Item.Properties().stacksTo(1), false));
-    public static final RegistryObject<Item> MAGENTA_HAT = register("magenta_hat", () -> new SweaterItem(new Item.Properties().stacksTo(1), false));
-    public static final RegistryObject<Item> PINK_HAT = register("pink_hat", () -> new SweaterItem(new Item.Properties().stacksTo(1), false));
-    public static final RegistryObject<Item> TRADER_HOOD = register("trader_hood", () -> new SweaterItem(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON), false));
+    public static final RegistryObject<Item> WHITE_SWEATER = register("white_sweater", () -> new CottonArmorItem(new Item.Properties().stacksTo(1), true));
+    public static final RegistryObject<Item> LIGHT_GRAY_SWEATER = register("light_gray_sweater", () -> new CottonArmorItem(new Item.Properties().stacksTo(1), true));
+    public static final RegistryObject<Item> GRAY_SWEATER = register("gray_sweater", () -> new CottonArmorItem(new Item.Properties().stacksTo(1), true));
+    public static final RegistryObject<Item> BLACK_SWEATER = register("black_sweater", () -> new CottonArmorItem(new Item.Properties().stacksTo(1), true));
+    public static final RegistryObject<Item> BROWN_SWEATER = register("brown_sweater", () -> new CottonArmorItem(new Item.Properties().stacksTo(1), true));
+    public static final RegistryObject<Item> RED_SWEATER = register("red_sweater", () -> new CottonArmorItem(new Item.Properties().stacksTo(1), true));
+    public static final RegistryObject<Item> ORANGE_SWEATER = register("orange_sweater", () -> new CottonArmorItem(new Item.Properties().stacksTo(1), true));
+    public static final RegistryObject<Item> YELLOW_SWEATER = register("yellow_sweater", () -> new CottonArmorItem(new Item.Properties().stacksTo(1), true));
+    public static final RegistryObject<Item> LIME_SWEATER = register("lime_sweater", () -> new CottonArmorItem(new Item.Properties().stacksTo(1), true));
+    public static final RegistryObject<Item> GREEN_SWEATER = register("green_sweater", () -> new CottonArmorItem(new Item.Properties().stacksTo(1), true));
+    public static final RegistryObject<Item> CYAN_SWEATER = register("cyan_sweater", () -> new CottonArmorItem(new Item.Properties().stacksTo(1), true));
+    public static final RegistryObject<Item> LIGHT_BLUE_SWEATER = register("light_blue_sweater", () -> new CottonArmorItem(new Item.Properties().stacksTo(1), true));
+    public static final RegistryObject<Item> BLUE_SWEATER = register("blue_sweater", () -> new CottonArmorItem(new Item.Properties().stacksTo(1), true));
+    public static final RegistryObject<Item> PURPLE_SWEATER = register("purple_sweater", () -> new CottonArmorItem(new Item.Properties().stacksTo(1), true));
+    public static final RegistryObject<Item> MAGENTA_SWEATER = register("magenta_sweater", () -> new CottonArmorItem(new Item.Properties().stacksTo(1), true));
+    public static final RegistryObject<Item> PINK_SWEATER = register("pink_sweater", () -> new CottonArmorItem(new Item.Properties().stacksTo(1), true));
+    public static final RegistryObject<Item> TRADER_ROBE = register("trader_robe", () -> new CottonArmorItem(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON), true));
+    public static final RegistryObject<Item> WHITE_HAT = register("white_hat", () -> new CottonArmorItem(new Item.Properties().stacksTo(1), false));
+    public static final RegistryObject<Item> LIGHT_GRAY_HAT = register("light_gray_hat", () -> new CottonArmorItem(new Item.Properties().stacksTo(1), false));
+    public static final RegistryObject<Item> GRAY_HAT = register("gray_hat", () -> new CottonArmorItem(new Item.Properties().stacksTo(1), false));
+    public static final RegistryObject<Item> BLACK_HAT = register("black_hat", () -> new CottonArmorItem(new Item.Properties().stacksTo(1), false));
+    public static final RegistryObject<Item> BROWN_HAT = register("brown_hat", () -> new CottonArmorItem(new Item.Properties().stacksTo(1), false));
+    public static final RegistryObject<Item> RED_HAT = register("red_hat", () -> new CottonArmorItem(new Item.Properties().stacksTo(1), false));
+    public static final RegistryObject<Item> ORANGE_HAT = register("orange_hat", () -> new CottonArmorItem(new Item.Properties().stacksTo(1), false));
+    public static final RegistryObject<Item> YELLOW_HAT = register("yellow_hat", () -> new CottonArmorItem(new Item.Properties().stacksTo(1), false));
+    public static final RegistryObject<Item> LIME_HAT = register("lime_hat", () -> new CottonArmorItem(new Item.Properties().stacksTo(1), false));
+    public static final RegistryObject<Item> GREEN_HAT = register("green_hat", () -> new CottonArmorItem(new Item.Properties().stacksTo(1), false));
+    public static final RegistryObject<Item> CYAN_HAT = register("cyan_hat", () -> new CottonArmorItem(new Item.Properties().stacksTo(1), false));
+    public static final RegistryObject<Item> LIGHT_BLUE_HAT = register("light_blue_hat", () -> new CottonArmorItem(new Item.Properties().stacksTo(1), false));
+    public static final RegistryObject<Item> BLUE_HAT = register("blue_hat", () -> new CottonArmorItem(new Item.Properties().stacksTo(1), false));
+    public static final RegistryObject<Item> PURPLE_HAT = register("purple_hat", () -> new CottonArmorItem(new Item.Properties().stacksTo(1), false));
+    public static final RegistryObject<Item> MAGENTA_HAT = register("magenta_hat", () -> new CottonArmorItem(new Item.Properties().stacksTo(1), false));
+    public static final RegistryObject<Item> PINK_HAT = register("pink_hat", () -> new CottonArmorItem(new Item.Properties().stacksTo(1), false));
+    public static final RegistryObject<Item> TRADER_HOOD = register("trader_hood", () -> new CottonArmorItem(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON), false));
 
     private static <T extends Item> RegistryObject<T> register(String id, Supplier<T> itemSupplier) {
         return ITEMS.register(id, itemSupplier);

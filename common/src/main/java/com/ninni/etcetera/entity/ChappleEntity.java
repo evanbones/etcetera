@@ -54,7 +54,10 @@ public class ChappleEntity extends Chicken implements Shearable {
     protected void defineSynchedData(SynchedEntityData.@NotNull Builder builder) {
         super.defineSynchedData(builder);
         builder.define(TYPE, Type.NORMAL.name);
-        builder.define(APPLE_LAY_TIME, this.random.nextInt(6000) + 6000);
+        int min = com.ninni.etcetera.config.ModConfig.get().normalAppleLayTimeMin;
+        int max = com.ninni.etcetera.config.ModConfig.get().normalAppleLayTimeMax;
+        int range = Math.max(1, max - min);
+        builder.define(APPLE_LAY_TIME, this.random.nextInt(range) + min);
     }
 
     @Override
@@ -94,12 +97,19 @@ public class ChappleEntity extends Chicken implements Shearable {
         this.eggTime = 1000;
 
         if (this.isAlive() && !this.isBaby() && !this.isPassenger()) this.setAppleLayTime(this.getAppleLayTime() - 1);
-        if (this.isAlive() && !this.isBaby() && !this.isPassenger() && this.getAppleLayTime() <= 0 && !this.level().isClientSide && this.getAppleLayTime() <= 0) {
+        if (this.isAlive() && !this.isBaby() && !this.isPassenger() && this.getAppleLayTime() <= 0 && !this.level().isClientSide) {
             this.playSound(SoundEvents.CHICKEN_EGG, 1.0f, (this.random.nextFloat() - this.random.nextFloat()) * 0.2f + 1.0f);
-            if (this.getChappleType() == Type.GOLDEN && this.random.nextInt(3) == 0) this.spawnAtLocation(Items.GOLDEN_APPLE);
-            else this.spawnAtLocation(Items.APPLE);
+            boolean isGolden = this.getChappleType() == Type.GOLDEN;
+            if (isGolden && this.random.nextInt(com.ninni.etcetera.config.ModConfig.get().goldenChappleGoldenAppleChance) == 0) {
+                this.spawnAtLocation(Items.GOLDEN_APPLE);
+            } else {
+                this.spawnAtLocation(Items.APPLE);
+            }
             this.gameEvent(GameEvent.ENTITY_PLACE);
-            this.setAppleLayTime(this.random.nextInt(6000) + 6000);
+            int min = isGolden ? com.ninni.etcetera.config.ModConfig.get().goldenChappleAppleLayTimeMin : com.ninni.etcetera.config.ModConfig.get().normalAppleLayTimeMin;
+            int max = isGolden ? com.ninni.etcetera.config.ModConfig.get().goldenChappleAppleLayTimeMax : com.ninni.etcetera.config.ModConfig.get().normalAppleLayTimeMax;
+            int range = Math.max(1, max - min);
+            this.setAppleLayTime(this.random.nextInt(range) + min);
         }
     }
 
@@ -142,7 +152,8 @@ public class ChappleEntity extends Chicken implements Shearable {
                 this.level().addFreshEntity(chicken);
             }
 
-            for (int i = 0; i < 5; ++i) {
+            int appleCount = com.ninni.etcetera.config.ModConfig.get().chappleShearedAppleCount;
+            for (int i = 0; i < appleCount; ++i) {
                 this.level().addFreshEntity(new ItemEntity(this.level(), this.getX(), this.getY(1.0), this.getZ(), new ItemStack(this.getChappleType().apple)));
             }
         }

@@ -25,13 +25,16 @@ public class DreamCatcherBlockEntity extends BlockEntity {
 
     public static void tick(Level world, BlockPos pos, BlockState state, DreamCatcherBlockEntity blockEntity) {
         if (state.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER && world.getDayTime() > 13000 && world.getDayTime() < 24020) {
-            List<Player> list = world.getEntitiesOfClass(Player.class, new AABB(pos).inflate(8.0D, 5.0D, 8.0D), player -> !player.isCreative());
+            double rx = com.ninni.etcetera.config.ModConfig.get().dreamCatcherRangeX;
+            double ry = com.ninni.etcetera.config.ModConfig.get().dreamCatcherRangeY;
+            double rz = com.ninni.etcetera.config.ModConfig.get().dreamCatcherRangeZ;
+            List<Player> list = world.getEntitiesOfClass(Player.class, new AABB(pos).inflate(rx, ry, rz), player -> !player.isCreative());
             for (Player player : list) {
                 if (world.getDayTime() > 24000) {
-                    player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 20 * 15, 2, false, true));
-                    player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 20 * 90, 0, false, true));
+                    player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, com.ninni.etcetera.config.ModConfig.get().dreamCatcherRegenerationDuration, com.ninni.etcetera.config.ModConfig.get().dreamCatcherRegenerationAmplifier, false, true));
+                    player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, com.ninni.etcetera.config.ModConfig.get().dreamCatcherStrengthDuration, com.ninni.etcetera.config.ModConfig.get().dreamCatcherStrengthAmplifier, false, true));
                 }
-                player.addEffect(new MobEffectInstance(EtceteraStatusEffects.DROWSY, 10, 0, true, true));
+                player.addEffect(new MobEffectInstance(EtceteraStatusEffects.DROWSY, com.ninni.etcetera.config.ModConfig.get().dreamCatcherDrowsyDuration, 0, true, true));
             }
         }
     }

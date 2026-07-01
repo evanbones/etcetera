@@ -48,7 +48,7 @@ public class EggpleEntity extends ThrowableItemProjectile {
         super.onHit(hitResult);
         if (!this.level().isClientSide) {
             int i = 1;
-            if (this.random.nextInt(160) == 0) {
+            if (this.random.nextInt(com.ninni.etcetera.config.ModConfig.get().eggpleFourHatchChance) == 0) {
                 i = 4;
             }
             for (int j = 0; j < i; ++j) {

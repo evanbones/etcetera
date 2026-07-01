@@ -50,11 +50,11 @@ public class GoldenGolemEntity extends PathfinderMob {
 
     public static AttributeSupplier.Builder createAttributes() {
         return Mob.createMobAttributes()
-                .add(Attributes.MAX_HEALTH, 20.0)
-                .add(Attributes.FLYING_SPEED, 1f)
-                .add(Attributes.MOVEMENT_SPEED, 0.3f)
-                .add(Attributes.ATTACK_DAMAGE, 2.0)
-                .add(Attributes.FOLLOW_RANGE, 48.0);
+                .add(Attributes.MAX_HEALTH, com.ninni.etcetera.config.ModConfig.get().goldenGolemMaxHealth)
+                .add(Attributes.FLYING_SPEED, (float) com.ninni.etcetera.config.ModConfig.get().goldenGolemFlyingSpeed)
+                .add(Attributes.MOVEMENT_SPEED, com.ninni.etcetera.config.ModConfig.get().goldenGolemMovementSpeed)
+                .add(Attributes.ATTACK_DAMAGE, com.ninni.etcetera.config.ModConfig.get().goldenGolemAttackDamage)
+                .add(Attributes.FOLLOW_RANGE, com.ninni.etcetera.config.ModConfig.get().goldenGolemFollowRange);
     }
 
     @Override
@@ -149,10 +149,10 @@ public class GoldenGolemEntity extends PathfinderMob {
     public void grantHealing() {
         this.setPose(Pose.CROAKING);
         this.playSound(EtceteraSoundEvents.ENTITY_GOLDEN_GOLEM_GRANT, 1, 1);
-        this.getDefendedEntity().addEffect(new MobEffectInstance(MobEffects.ABSORPTION, 2400, 1, true, false));
-        this.getDefendedEntity().heal(8);
+        this.getDefendedEntity().addEffect(new MobEffectInstance(MobEffects.ABSORPTION, com.ninni.etcetera.config.ModConfig.get().goldenGolemAbsorptionDuration, com.ninni.etcetera.config.ModConfig.get().goldenGolemAbsorptionAmplifier, true, false));
+        this.getDefendedEntity().heal((float) com.ninni.etcetera.config.ModConfig.get().goldenGolemHealingAmount);
         this.setHealingAmount(this.getHealingAmount() - 1);
-        this.setHealingCooldown(20 * 120);
+        this.setHealingCooldown(com.ninni.etcetera.config.ModConfig.get().goldenGolemHealingCooldown);
 
         if (this.level() instanceof ServerLevel serverWorld) {
             for (int i = 0; i < 7; ++i) {
@@ -223,7 +223,7 @@ public class GoldenGolemEntity extends PathfinderMob {
     protected void defineSynchedData(SynchedEntityData.@NotNull Builder builder) {
         super.defineSynchedData(builder);
         builder.define(DEFENDING_UUID, Optional.empty());
-        builder.define(HEALING_AMOUNT, 10);
+        builder.define(HEALING_AMOUNT, com.ninni.etcetera.config.ModConfig.get().goldenGolemHealingCharges);
         builder.define(HEALING_COOLDOWN, 0);
     }
 

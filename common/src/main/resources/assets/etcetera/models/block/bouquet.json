@@ -2,5 +2,6 @@
   "parent": "minecraft:block/cross",
   "textures": {
     "cross": "etcetera:block/bouquet"
-  }
+  },
+  "render_type": "minecraft:cutout"
 }

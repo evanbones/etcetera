@@ -48,7 +48,7 @@ public class RubberCauldronBlock extends AbstractCauldronBlock {
         int i = state.getValue(SOLID);
         BlockState state2 = world.getBlockState(pos.above());
         if (i < 3 && state2.is(EtceteraBlocks.COPPER_TAP.get()) && state2.getValue(CoppertapBlock.POWERED)) {
-            if (random.nextInt(7) == 0) {
+            if (random.nextInt(com.ninni.etcetera.config.ModConfig.get().rubberCauldronSolidifyChance) == 0) {
                 world.setBlock(pos, state.setValue(SOLID, i + 1), 2);
             }
         }

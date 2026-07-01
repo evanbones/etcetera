@@ -158,6 +158,8 @@ public class EtceteraCreativeModeTab {
                 .forEach((variant) -> {
                     ItemStack itemStack = new ItemStack(Items.PAINTING);
                     CustomData.update(DataComponents.ENTITY_DATA, itemStack, (tag) -> {
+                        tag.putString("id", "minecraft:painting");
+
                         variant.unwrapKey().ifPresent(key -> tag.putString("variant", key.location().toString()));
                     });
                     entries.accept(itemStack);

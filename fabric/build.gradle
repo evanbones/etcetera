@@ -11,7 +11,7 @@ dependencies {
     }
 
     // EMI
-    modRuntimeOnly "dev.emi:emi-fabric:${emi_version}"
+    modImplementation "dev.emi:emi-fabric:${emi_version}"
 
     // YACL
     modImplementation "maven.modrinth:yacl:${yacl_version}-fabric"

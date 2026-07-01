@@ -2,5 +2,6 @@
   "parent": "etcetera:block/cross_crop",
   "textures": {
     "crop": "etcetera:block/cotton_stage1"
-  }
+  },
+  "render_type": "minecraft:cutout"
 }

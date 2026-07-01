@@ -34,9 +34,9 @@ public class WeaverEntity extends Monster implements RangedAttackMob {
 
     public static AttributeSupplier.Builder createAttributes() {
         return Mob.createMobAttributes()
-                .add(Attributes.MAX_HEALTH, 50.0)
-                .add(Attributes.MOVEMENT_SPEED, 0.3f)
-                .add(Attributes.ATTACK_DAMAGE, 8.0);
+                .add(Attributes.MAX_HEALTH, com.ninni.etcetera.config.ModConfig.get().weaverMaxHealth)
+                .add(Attributes.MOVEMENT_SPEED, com.ninni.etcetera.config.ModConfig.get().weaverMovementSpeed)
+                .add(Attributes.ATTACK_DAMAGE, com.ninni.etcetera.config.ModConfig.get().weaverAttackDamage);
     }
 
     @Override

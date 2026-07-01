@@ -36,13 +36,21 @@ public class EtceteraVanillaIntegration {
 
     public static void serverInit() {
         EtceteraNetwork.initCommon();
-        flattenableBlockRegistry();
+        if (com.ninni.etcetera.config.ModConfig.get().enableFlattenableBlocks) {
+            flattenableBlockRegistry();
+        }
         registerDispenserBehavior();
         registerReloadListeners();
         registerWaxables();
-        registerVillagerTrades();
-        registerLootTableEvents();
-        registerCompostables();
+        if (com.ninni.etcetera.config.ModConfig.get().enableVillagerTrades) {
+            registerVillagerTrades();
+        }
+        if (com.ninni.etcetera.config.ModConfig.get().enableLootTableModifiers) {
+            registerLootTableEvents();
+        }
+        if (com.ninni.etcetera.config.ModConfig.get().enableCompostables) {
+            registerCompostables();
+        }
     }
 
     private static void flattenableBlockRegistry() {

@@ -45,7 +45,7 @@ public class CottonBlock extends CropBlock {
 
     @Override
     public void randomTick(@NotNull BlockState state, @NotNull ServerLevel world, @NotNull BlockPos pos, RandomSource random) {
-        if (random.nextInt(3) != 0) super.randomTick(state, world, pos, random);
+        if (random.nextInt(com.ninni.etcetera.config.ModConfig.get().cottonGrowthSlowdown) != 0) super.randomTick(state, world, pos, random);
     }
 
     @Override

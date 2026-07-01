@@ -36,7 +36,7 @@ public class HandbellItem extends Item {
     }
 
     private static void applyParticlesTooFriends(Level world, BlockPos pos, List<LivingEntity> hearingEntities, Player player) {
-        int entiyCount = (int) hearingEntities.stream().filter(entity -> pos.closerToCenterThan(entity.position(), 48.0)).count();
+        int entiyCount = (int) hearingEntities.stream().filter(entity -> pos.closerToCenterThan(entity.position(), com.ninni.etcetera.config.ModConfig.get().handbellRange)).count();
 
         hearingEntities.stream().filter(entity -> isFriendEntity(pos, entity, player)).forEach(entity -> {
             int j = Mth.clamp((entiyCount - 21) / -2, 3, 15);
@@ -54,7 +54,7 @@ public class HandbellItem extends Item {
     }
 
     private static void applyGlowToEntity(LivingEntity entity) {
-        entity.addEffect(new MobEffectInstance(MobEffects.GLOWING, 120));
+        entity.addEffect(new MobEffectInstance(MobEffects.GLOWING, com.ninni.etcetera.config.ModConfig.get().handbellGlowDuration));
     }
 
     private static boolean isFriendEntity(BlockPos pos, LivingEntity entity, Player player) {
@@ -72,13 +72,13 @@ public class HandbellItem extends Item {
             tamedEntity.getNavigation().stop();
         }
         if (entity.isAlive() && !entity.isRemoved()) {
-            pos.closerToCenterThan(entity.position(), 48.0);
+            pos.closerToCenterThan(entity.position(), com.ninni.etcetera.config.ModConfig.get().handbellRange);
         }
     }
 
     @Override
     public @NotNull InteractionResultHolder<ItemStack> use(Level world, Player player, @NotNull InteractionHand hand) {
-        List<LivingEntity> hearingEntities = world.getEntitiesOfClass(LivingEntity.class, new AABB(player.blockPosition()).inflate(48.0));
+        List<LivingEntity> hearingEntities = world.getEntitiesOfClass(LivingEntity.class, new AABB(player.blockPosition()).inflate(com.ninni.etcetera.config.ModConfig.get().handbellRange));
 
         if (!world.isClientSide) applyGlowToFriends(player.blockPosition(), hearingEntities, player);
         else applyParticlesTooFriends(world, player.blockPosition(), hearingEntities, player);

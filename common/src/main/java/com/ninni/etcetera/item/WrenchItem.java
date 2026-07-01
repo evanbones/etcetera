@@ -52,6 +52,37 @@ public class WrenchItem extends Item {
         return list.get(j);
     }
 
+    /**
+     * Helper method to determine if a property should NOT be modified by the wrench.
+     * This prevents duplication glitches, free resources, and logic breaks.
+     */
+    private boolean isInvalidProperty(@Nullable Property<?> property) {
+        if (property == null) return true;
+
+        String name = property.getName();
+        if (name.equals("age") || name.equals("level")) {
+            return true;
+        }
+
+        return property == BlockStateProperties.WATERLOGGED
+                || property == BlockStateProperties.LIT
+                || property == BlockStateProperties.POWERED
+                || property == BlockStateProperties.ATTACH_FACE
+                || property == BlockStateProperties.HAS_BOOK
+                || property == BlockStateProperties.OPEN
+                || property == BlockStateProperties.LEVEL_HONEY
+                || property == BlockStateProperties.FLOWER_AMOUNT
+                || property == BlockStateProperties.CANDLES
+                || property == BlockStateProperties.PICKLES
+                || property == BlockStateProperties.EGGS
+                || property == BlockStateProperties.HATCH
+                || property == BlockStateProperties.BITES
+                || property == BlockStateProperties.BERRIES
+                || property == BlockStateProperties.OMINOUS
+                || property == BlockStateProperties.VAULT_STATE
+                || property == BlockStateProperties.RESPAWN_ANCHOR_CHARGES;
+    }
+
     @Override
     public @NotNull InteractionResult useOn(UseOnContext context) {
         Level world = context.getLevel();
@@ -87,14 +118,7 @@ public class WrenchItem extends Item {
             player.awardStat(Stats.ITEM_USED.get(this));
 
             if (update) {
-                if (property == null
-                        || property == BlockStateProperties.WATERLOGGED
-                        || property == BlockStateProperties.LIT
-                        || property == BlockStateProperties.POWERED
-                        || property == BlockStateProperties.ATTACH_FACE
-                        || property == BlockStateProperties.HAS_BOOK
-                        || property == BlockStateProperties.OPEN
-                        || property == BlockStateProperties.LEVEL_HONEY) {
+                if (isInvalidProperty(property)) {
                     property = collection.iterator().next();
                 }
 
@@ -117,13 +141,7 @@ public class WrenchItem extends Item {
 
                 player.playSound(EtceteraSoundEvents.ITEM_WRENCH_SELECT, 1, 1);
 
-                if (property == BlockStateProperties.WATERLOGGED
-                        || property == BlockStateProperties.LIT
-                        || property == BlockStateProperties.POWERED
-                        || property == BlockStateProperties.ATTACH_FACE
-                        || property == BlockStateProperties.HAS_BOOK
-                        || property == BlockStateProperties.OPEN
-                        || property == BlockStateProperties.LEVEL_HONEY) {
+                if (isInvalidProperty(property)) {
                     player.displayClientMessage(Component.translatable(this.getDescriptionId() + ".invalid", property.getName()), true);
                 } else {
                     player.displayClientMessage(Component.translatable(this.getDescriptionId() + ".select", property.getName()), true);

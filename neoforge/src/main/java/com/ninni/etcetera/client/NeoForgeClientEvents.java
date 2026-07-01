@@ -63,6 +63,7 @@ public class NeoForgeClientEvents {
 
     @SubscribeEvent
     public static void onRegisterLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
+        event.registerLayerDefinition(EtceteraEntityModelLayers.PLAYER_COTTON, CottonArmorModel::getTexturedModelData);
         event.registerLayerDefinition(EtceteraEntityModelLayers.RUBBER_CHICKEN, RubberChickenModel::getTexturedModelData);
         event.registerLayerDefinition(EtceteraEntityModelLayers.GOLDEN_GOLEM, GoldenGolemModel::getTexturedModelData);
         event.registerLayerDefinition(EtceteraEntityModelLayers.COBWEB, CobwebProjectileModel::getTexturedModelData);
@@ -132,9 +133,27 @@ public class NeoForgeClientEvents {
     @SubscribeEvent
     public static void onRegisterClientExtensions(RegisterClientExtensionsEvent event) {
         IClientItemExtensions cottonArmor = new IClientItemExtensions() {
+            private final CottonArmorRenderer renderer = new CottonArmorRenderer();
+            private CottonArmorModel<LivingEntity> model;
+            private ItemStack currentStack = ItemStack.EMPTY;
+
             @Override
+            @SuppressWarnings({"unchecked", "rawtypes"})
             public @NotNull HumanoidModel<?> getHumanoidArmorModel(@NotNull LivingEntity entityLiving, @NotNull ItemStack itemStack, @NotNull EquipmentSlot armorSlot, @NotNull HumanoidModel<?> _default) {
-                return new CottonArmorModel<>(Minecraft.getInstance().getEntityModels().bakeLayer(EtceteraEntityModelLayers.PLAYER_COTTON));
+                this.currentStack = itemStack;
+
+                if (model == null) {
+                    model = new CottonArmorModel<>(Minecraft.getInstance().getEntityModels().bakeLayer(EtceteraEntityModelLayers.PLAYER_COTTON)) {
+                        @Override
+                        public void renderToBuffer(@NotNull PoseStack poseStack, @NotNull VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+                            ResourceLocation texture = renderer.getTexture(currentStack.getItem());
+                            VertexConsumer customConsumer = Minecraft.getInstance().renderBuffers().bufferSource().getBuffer(RenderType.armorCutoutNoCull(texture));
+                            super.renderToBuffer(poseStack, customConsumer, packedLight, OverlayTexture.NO_OVERLAY, color);
+                        }
+                    };
+                }
+                _default.copyPropertiesTo((HumanoidModel) model);
+                return model;
             }
         };
 
@@ -160,15 +179,18 @@ public class NeoForgeClientEvents {
 
         IClientItemExtensions tidalArmor = new IClientItemExtensions() {
             private HumanoidModel<LivingEntity> model;
+            private LivingEntity currentEntity;
 
             @Override
             @SuppressWarnings({"unchecked", "rawtypes"})
             public @NotNull HumanoidModel<?> getHumanoidArmorModel(@NotNull LivingEntity entityLiving, @NotNull ItemStack itemStack, @NotNull EquipmentSlot armorSlot, @NotNull HumanoidModel<?> _default) {
+                this.currentEntity = entityLiving;
+
                 if (model == null) {
                     model = new HumanoidModel<>(Minecraft.getInstance().getEntityModels().bakeLayer(ModelLayers.PLAYER_OUTER_ARMOR)) {
                         @Override
                         public void renderToBuffer(@NotNull PoseStack poseStack, @NotNull VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
-                            ResourceLocation texture = entityLiving.isEyeInFluid(FluidTags.WATER) && entityLiving.hasEffect(MobEffects.CONDUIT_POWER)
+                            ResourceLocation texture = currentEntity.isEyeInFluid(FluidTags.WATER) && currentEntity.hasEffect(MobEffects.CONDUIT_POWER)
                                     ? ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "textures/models/armor/active_tidal_layer_1.png")
                                     : ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "textures/models/armor/tidal_layer_1.png");
 
