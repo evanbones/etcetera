@@ -100,7 +100,7 @@ public class RedstoneWiresBlock extends Block implements SimpleWaterloggedBlock 
         if (state.is(EtceteraBlocks.REDSTONE_WIRES.get())) return true;
         if (state.is(Blocks.REDSTONE_WIRE)) return false;
 
-        if (state.is(Blocks.REPEATER)) {
+        if (state.is(Blocks.REPEATER) || state.is(EtceteraBlocks.REDSTONE_WIRE_REPEATER.get())) {
             Direction direction = state.getValue(RepeaterBlock.FACING);
             return direction == dir || direction.getOpposite() == dir;
         }

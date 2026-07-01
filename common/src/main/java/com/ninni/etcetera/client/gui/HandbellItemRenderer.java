@@ -9,6 +9,11 @@ import net.minecraft.world.item.ItemStack;
 import static com.ninni.etcetera.Constants.MOD_ID;
 
 public class HandbellItemRenderer {
+    public static final ModelResourceLocation INVENTORY_MODEL_ID = new ModelResourceLocation(
+            ResourceLocation.fromNamespaceAndPath(MOD_ID, "handbell"),
+            "inventory"
+    );
+
     public static final ModelResourceLocation INVENTORY_IN_HAND_MODEL_ID = new ModelResourceLocation(
             ResourceLocation.fromNamespaceAndPath(MOD_ID, "item/handbell_in_hand"),
             "standalone"

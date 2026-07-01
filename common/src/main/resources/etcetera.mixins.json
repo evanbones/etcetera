@@ -4,10 +4,10 @@
   "package": "com.ninni.etcetera.mixin",
   "compatibilityLevel": "JAVA_18",
   "mixins": [
+    "AbstractCauldronBlockMixin",
     "AnvilBlockMixin",
     "AnvilMenuMixin",
     "EntityMixin",
-    "LayeredCauldronBlockMixin",
     "LevelMixin",
     "LivingEntityMixin",
     "LootTableAccessor",
@@ -18,7 +18,6 @@
     "VillagerMixin"
   ],
   "client": [
-    "client.ItemRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

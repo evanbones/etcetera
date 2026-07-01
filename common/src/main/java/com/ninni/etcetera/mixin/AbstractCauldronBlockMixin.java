@@ -1,7 +1,7 @@
 package com.ninni.etcetera.mixin;
 
+import com.ninni.etcetera.Constants;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.cauldron.CauldronInteraction;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.InteractionHand;
@@ -15,21 +15,20 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LayeredCauldronBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
-import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(LayeredCauldronBlock.class)
-public abstract class LayeredCauldronBlockMixin extends AbstractCauldronBlock {
-    public LayeredCauldronBlockMixin(Properties properties, CauldronInteraction.InteractionMap behaviorMap) {
-        super(properties, behaviorMap);
-    }
+@Mixin(AbstractCauldronBlock.class)
+public abstract class AbstractCauldronBlockMixin {
 
-    @Override
-    protected @NotNull ItemInteractionResult useItemOn(ItemStack stack, @NotNull BlockState state, Level world, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hit) {
+    @Inject(method = "useItemOn", at = @At("HEAD"), cancellable = true)
+    private void etcetera$useItemOn(ItemStack stack, BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit, CallbackInfoReturnable<ItemInteractionResult> cir) {
         CustomData customData = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY);
         CompoundTag tag = customData.copyTag();
 
-        if (world.getBlockState(pos).is(Blocks.WATER_CAULDRON) && (tag.contains("Label1") || tag.contains("Label2") || tag.contains("Label") || tag.contains("Label4"))) {
+        if (world.getBlockState(pos).is(Blocks.WATER_CAULDRON) && (tag.contains("Label1") || tag.contains("Label2") || tag.contains("Label3") || tag.contains("Label4"))) {
             ItemStack itemStack2 = stack.copy();
 
             tag.remove("Label1");
@@ -41,8 +40,7 @@ public abstract class LayeredCauldronBlockMixin extends AbstractCauldronBlock {
             player.setItemInHand(hand, itemStack2);
             LayeredCauldronBlock.lowerFillLevel(world.getBlockState(pos), world, pos);
 
-            return ItemInteractionResult.sidedSuccess(world.isClientSide);
+            cir.setReturnValue(ItemInteractionResult.sidedSuccess(world.isClientSide));
         }
-        return super.useItemOn(stack, state, world, pos, player, hand, hit);
     }
 }

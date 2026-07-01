@@ -455,6 +455,50 @@
     ],
     "subtitle": "subtitles.block.etcetera.prickly_can.close"
   },
+  "block.rubber.break": {
+    "sounds": [
+      "etcetera:block/rubber/break1",
+      "etcetera:block/rubber/break2",
+      "etcetera:block/rubber/break3",
+      "etcetera:block/rubber/break4"
+    ],
+    "subtitle": "subtitles.block.generic.break"
+  },
+  "block.rubber.fall": {
+    "sounds": [
+      {
+        "name": "etcetera:block.rubber.break",
+        "type": "event"
+      }
+    ]
+  },
+  "block.rubber.hit": {
+    "sounds": [
+      "etcetera:block/rubber/hit1",
+      "etcetera:block/rubber/hit2",
+      "etcetera:block/rubber/hit3",
+      "etcetera:block/rubber/hit4"
+    ],
+    "subtitle": "subtitles.block.generic.hit"
+  },
+  "block.rubber.place": {
+    "sounds": [
+      {
+        "name": "etcetera:block.rubber.break",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.block.generic.place"
+  },
+  "block.rubber.step": {
+    "sounds": [
+      "etcetera:block/rubber/step1",
+      "etcetera:block/rubber/step2",
+      "etcetera:block/rubber/step3",
+      "etcetera:block/rubber/step4"
+    ],
+    "subtitle": "subtitles.block.generic.footsteps"
+  },
   "item.chisel.use": {
     "sounds": [
       "etcetera:item/chisel/use1",

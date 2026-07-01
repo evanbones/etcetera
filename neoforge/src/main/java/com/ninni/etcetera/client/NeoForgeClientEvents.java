@@ -44,7 +44,7 @@ public class NeoForgeClientEvents {
 
     @SubscribeEvent
     public static void onRegisterModels(ModelEvent.RegisterAdditional event) {
-        event.register(new ModelResourceLocation(HandbellItemRenderer.INVENTORY_IN_HAND_MODEL_ID.id(), "standalone"));
+        event.register(HandbellItemRenderer.INVENTORY_IN_HAND_MODEL_ID);
     }
 
     @SubscribeEvent

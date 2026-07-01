@@ -21,6 +21,7 @@ public class EtceteraArmorMaterials {
     public static final Holder<ArmorMaterial> TIDAL = register("tidal", 35, makeDefense(3, 6, 8, 3), 15, EtceteraSoundEvents.ITEM_TIDEL_ARMOR_EQUIP, 0.0f, 0.0f, () -> Ingredient.of(Items.NAUTILUS_SHELL));
     public static final Holder<ArmorMaterial> SILK = register("silk", 20, makeDefense(2, 5, 6, 2), 15, EtceteraSoundEvents.ITEM_ARMOR_SILK_EQUIP, 0.0f, 0.0f, () -> Ingredient.of(Items.COBWEB));
     public static final Holder<ArmorMaterial> ADVENTURER = register("adventurer", 20, makeDefense(2, 5, 6, 2), 15, EtceteraSoundEvents.ITEM_ARMOR_ADVENTURER_EQUIP, 0.0f, 0.0f, () -> Ingredient.of(Items.IRON_INGOT));
+    public static final Holder<ArmorMaterial> COTTON = register("cotton", 5, makeDefense(0, 0, 0, 0), 15, EtceteraSoundEvents.ITEM_ARMOR_EQUIP_COTTON, 0.0f, 0.0f, () -> Ingredient.of(EtceteraItems.COTTON_FLOWER.get()));
 
     private static Map<ArmorItem.Type, Integer> makeDefense(int boots, int leggings, int chestplate, int helmet) {
         EnumMap<ArmorItem.Type, Integer> map = new EnumMap<>(ArmorItem.Type.class);

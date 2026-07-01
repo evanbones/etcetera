@@ -1,5 +1,6 @@
 package com.ninni.etcetera.item;
 
+import com.ninni.etcetera.registry.EtceteraArmorMaterials;
 import com.ninni.etcetera.registry.EtceteraSoundEvents;
 import net.minecraft.core.Holder;
 import net.minecraft.core.dispenser.BlockSource;
@@ -11,7 +12,6 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
-import net.minecraft.world.item.ArmorMaterials;
 import net.minecraft.world.item.Equipable;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -29,7 +29,7 @@ public class CottonArmorItem extends ArmorItem implements Equipable {
     boolean sweater;
 
     public CottonArmorItem(Properties properties, boolean sweater) {
-        super(ArmorMaterials.LEATHER, sweater ? ArmorItem.Type.CHESTPLATE : ArmorItem.Type.HELMET, properties);
+        super(EtceteraArmorMaterials.COTTON, sweater ? ArmorItem.Type.CHESTPLATE : ArmorItem.Type.HELMET, properties);
         this.sweater = sweater;
         DispenserBlock.registerBehavior(this, DISPENSER_BEHAVIOR);
     }
